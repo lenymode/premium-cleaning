@@ -10,6 +10,7 @@ final class TestimonialData
         public readonly string $quote,
         public readonly int $rating = 5,
         public readonly ?string $company = null,
+        public readonly ?string $image = null,
     ) {
     }
 }

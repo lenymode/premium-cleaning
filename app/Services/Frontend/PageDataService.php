@@ -4,11 +4,34 @@ namespace App\Services\Frontend;
 
 use App\Data\LocationData;
 use App\Data\TestimonialData;
+use App\Models\Location;
+use App\Models\Testimonial;
 
 class PageDataService
 {
     public function testimonials(): array
     {
+        try {
+            $testimonials = Testimonial::query()
+                ->where('is_active', true)
+                ->orderBy('sort_order')
+                ->orderByDesc('created_at')
+                ->get();
+
+            if ($testimonials->isNotEmpty()) {
+                return $testimonials->map(fn (Testimonial $testimonial) => new TestimonialData(
+                    $testimonial->name,
+                    $testimonial->role ?: 'Customer',
+                    $testimonial->quote,
+                    $testimonial->rating,
+                    $testimonial->company,
+                    $testimonial->image,
+                ))->all();
+            }
+        } catch (\Throwable) {
+            //
+        }
+
         return [
             new TestimonialData('Sarah Mitchell', 'Operations Director', 'Crestwell gives us consistent cleaning standards across our office sites. Communication is clear, standards are documented, and the team feels dependable.', 5, 'Regional Consultancy'),
             new TestimonialData('Daniel Harper', 'Property Manager', 'Their end of tenancy and communal area support has made handovers smoother. The team understands commercial urgency and keeps us updated.', 5, 'Harper Property Group'),
@@ -18,6 +41,25 @@ class PageDataService
 
     public function locations(): array
     {
+        try {
+            $locations = Location::query()
+                ->where('is_active', true)
+                ->orderBy('sort_order')
+                ->orderBy('name')
+                ->get();
+
+            if ($locations->isNotEmpty()) {
+                return $locations->map(fn (Location $location) => new LocationData(
+                    $location->name,
+                    $location->slug,
+                    $location->description ?: '',
+                    $location->postcode_area,
+                ))->all();
+            }
+        } catch (\Throwable) {
+            //
+        }
+
         return [
             new LocationData('Central Business Districts', 'central-business-districts', 'Office, retail and managed workspace cleaning for central commercial locations.'),
             new LocationData('Residential Developments', 'residential-developments', 'Cleaning support for apartment blocks, landlords, agents and property managers.'),

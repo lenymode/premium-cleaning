@@ -263,8 +263,9 @@
                 <div class="testi-grid2-img">
                     <div class="swiper th-slider testi-grid2-thumb" id="testiSlideImg" data-slider-options='{"effect":"fade","spaceBetween":0}'>
                         <div class="swiper-wrapper">
-                            @foreach(['testi_5_1.jpg', 'testi_5_2.jpg', 'testi_5_3.jpg'] as $image)
-                                <div class="swiper-slide"><img src="{{ asset('frontend/assets/img/testimonial/'.$image) }}" alt="Image"></div>
+                            @foreach($testimonials as $index => $testimonial)
+                                @php($fallbackImage = 'testimonial/testi_5_'.(($index % 3) + 1).'.jpg')
+                                <div class="swiper-slide"><img src="{{ asset('frontend/assets/img/'.($testimonial->image ?: $fallbackImage)) }}" alt="{{ $testimonial->name }}"></div>
                             @endforeach
                         </div>
                     </div>

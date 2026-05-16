@@ -22,6 +22,7 @@
                     <div class="service-card">
                         <div class="box-img"><img src="{{ asset('frontend/assets/img/'.$service->image) }}" alt="{{ $service->title }}"></div>
                         <div class="box-content">
+                            <span class="cw-service-card-icon"><i class="{{ $service->iconClass }}"></i></span>
                             <h3 class="box-title"><a href="{{ route('frontend.services.show', $service->slug) }}">{{ $service->title }}</a></h3>
                             <p class="box-text">{{ $service->excerpt }}</p>
                             <a href="{{ route('frontend.services.show', $service->slug) }}" class="link-btn">Explore Service<i class="fas fa-arrow-up-right ms-2"></i></a>

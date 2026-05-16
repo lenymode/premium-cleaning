@@ -12,8 +12,18 @@ class LocationController extends Controller
 {
     public function index()
     {
+        $query = Location::query()
+            ->when(request('q'), fn ($query, $search) => $query->where(function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('slug', 'like', "%{$search}%")
+                    ->orWhere('postcode_area', 'like', "%{$search}%");
+            }))
+            ->when(request()->filled('status'), fn ($query) => $query->where('is_active', request('status') === 'active'))
+            ->orderBy('sort_order')
+            ->latest();
+
         return view('backend.locations.index', [
-            'locations' => Location::query()->latest()->paginate(15),
+            'locations' => $query->paginate(12)->withQueryString(),
         ]);
     }
 

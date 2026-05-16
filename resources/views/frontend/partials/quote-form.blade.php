@@ -32,11 +32,8 @@
         <div class="col-md-6">
             <input class="form-control" name="property_type" value="{{ old('property_type') }}" placeholder="Property type">
         </div>
-        <div class="col-md-6">
+        <div class="col-12">
             <input class="form-control" name="postcode" value="{{ old('postcode') }}" placeholder="Postcode / service area">
-        </div>
-        <div class="col-md-6">
-            <a class="th-btn style6 w-100" href="tel:{{ config('site.phone_link') }}">Call {{ config('site.phone') }}</a>
         </div>
         <div class="col-12">
             <textarea class="form-control" name="message" rows="5" placeholder="Tell us about the site, schedule or cleaning requirement">{{ old('message') }}</textarea>

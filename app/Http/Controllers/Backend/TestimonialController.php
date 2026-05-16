@@ -6,14 +6,25 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreTestimonialRequest;
 use App\Http\Requests\Backend\UpdateTestimonialRequest;
 use App\Models\Testimonial;
+use App\Services\Backend\ImageUploadService;
 use App\Services\Backend\TestimonialManagementService;
 
 class TestimonialController extends Controller
 {
     public function index()
     {
+        $query = Testimonial::query()
+            ->when(request('q'), fn ($query, $search) => $query->where(function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('role', 'like', "%{$search}%")
+                    ->orWhere('company', 'like', "%{$search}%");
+            }))
+            ->when(request()->filled('status'), fn ($query) => $query->where('is_active', request('status') === 'active'))
+            ->orderBy('sort_order')
+            ->latest();
+
         return view('backend.testimonials.index', [
-            'testimonials' => Testimonial::query()->latest()->paginate(15),
+            'testimonials' => $query->paginate(12)->withQueryString(),
         ]);
     }
 
@@ -46,8 +57,9 @@ class TestimonialController extends Controller
         return redirect()->route('backend.testimonials.index')->with('status', 'Testimonial updated.');
     }
 
-    public function destroy(Testimonial $testimonial)
+    public function destroy(Testimonial $testimonial, ImageUploadService $images)
     {
+        $images->deleteFrontendImage($testimonial->image);
         $testimonial->delete();
 
         return redirect()->route('backend.testimonials.index')->with('status', 'Testimonial deleted.');

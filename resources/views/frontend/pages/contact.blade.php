@@ -20,7 +20,7 @@
                 <p><strong>Phone:</strong> <a href="tel:{{ config('site.phone_link') }}">{{ config('site.phone') }}</a></p>
                 <p><strong>WhatsApp:</strong> <a href="https://wa.me/{{ preg_replace('/\D+/', '', config('site.whatsapp')) }}">{{ config('site.whatsapp') }}</a></p>
                 <p><strong>Email:</strong> <a href="mailto:{{ config('site.email') }}">{{ config('site.email') }}</a></p>
-                <a href="https://wa.me/{{ preg_replace('/\D+/', '', config('site.whatsapp')) }}" class="th-btn style6">WhatsApp Enquiry<i class="fab fa-whatsapp ms-2"></i></a>
+                @include('frontend.partials.contact-action-buttons')
             </div>
             <div class="col-lg-7">
                 <div class="cw-quote-panel">@include('frontend.partials.quote-form')</div>

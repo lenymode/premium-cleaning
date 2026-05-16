@@ -1,3 +1,7 @@
+@php
+    $navServices = app(\App\Services\Frontend\ServicePageService::class)->all();
+@endphp
+
 <div class="th-menu-wrapper">
     <div class="th-menu-area text-center">
         <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
@@ -8,7 +12,7 @@
                 <li><a href="{{ route('frontend.about') }}">About Us</a></li>
                 <li class="menu-item-has-children"><a href="{{ route('frontend.services.index') }}">Services</a>
                     <ul class="sub-menu">
-                        @foreach(app(\App\Services\Frontend\ServicePageService::class)->all() as $navService)
+                        @foreach($navServices as $navService)
                             <li><a href="{{ route('frontend.services.show', $navService->slug) }}">{{ $navService->title }}</a></li>
                         @endforeach
                     </ul>
@@ -54,9 +58,18 @@
                                 <li><a href="{{ route('frontend.home') }}">Home</a></li>
                                 <li><a href="{{ route('frontend.about') }}">About Us</a></li>
                                 <li class="menu-item-has-children"><a href="{{ route('frontend.services.index') }}">Services</a>
-                                    <ul class="sub-menu">
-                                        @foreach(app(\App\Services\Frontend\ServicePageService::class)->all() as $navService)
-                                            <li><a href="{{ route('frontend.services.show', $navService->slug) }}">{{ $navService->title }}</a></li>
+                                    <ul class="sub-menu cw-service-mega-menu">
+                                        @foreach($navServices as $navService)
+                                            <li>
+                                                <a class="cw-mega-link" href="{{ route('frontend.services.show', $navService->slug) }}">
+                                                    <span class="cw-mega-icon"><i class="{{ $navService->iconClass }}"></i></span>
+                                                    <span class="cw-mega-copy">
+                                                        <span class="cw-mega-title">{{ $navService->title }}</span>
+                                                        <span class="cw-mega-text">{{ str($navService->excerpt)->limit(34) }}</span>
+                                                    </span>
+                                                    <span class="cw-mega-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                                                </a>
+                                            </li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -67,6 +80,7 @@
                     <div class="col-auto">
                         <div class="header-button">
                             <a href="https://wa.me/{{ preg_replace('/\D+/', '', config('site.whatsapp')) }}" class="cw-whatsapp-btn d-none d-xl-inline-flex">WhatsApp Enquiry<i class="fab fa-whatsapp ms-3"></i></a>
+                            <a href="tel:{{ config('site.phone_link') }}" class="cw-header-call-btn d-none d-xl-inline-flex">Call Now<i class="fas fa-phone ms-2"></i></a>
                             <a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Get Free Quote<i class="fas fa-arrow-up-right ms-2"></i></a>
                             <button type="button" class="th-menu-toggle d-block d-lg-none"><i class="far fa-bars"></i></button>
                         </div>
