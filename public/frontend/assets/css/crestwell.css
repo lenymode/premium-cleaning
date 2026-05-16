@@ -25,6 +25,36 @@
     max-width: 780px;
 }
 
+.hero-5,
+.hero-5 .th-slider,
+.hero-5 .swiper-wrapper,
+.hero-5 .swiper-slide,
+.hero-5 .hero-inner {
+    height: calc(100vh - 140px);
+    min-height: 560px;
+}
+
+.hero-5 .hero-inner {
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center right;
+    overflow: hidden;
+}
+
+.hero-5 .hero-style5 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.hero-5 .hero-title {
+    max-width: 760px;
+}
+
+.hero-5 .hero-text {
+    max-width: 820px;
+}
+
 .cw-kicker {
     display: inline-flex;
     align-items: center;
@@ -97,9 +127,50 @@
     background: #19a968;
 }
 
+.cw-whatsapp-btn {
+    align-items: center;
+    justify-content: center;
+    min-height: auto;
+    background: transparent;
+    border: 0;
+    color: #021f4e;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    padding: 0;
+    text-transform: uppercase;
+    box-shadow: none;
+}
+
+.cw-whatsapp-btn i {
+    color: #25d366;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.cw-whatsapp-btn:hover {
+    background: transparent;
+    color: #1ebe5d;
+}
+
+.cw-whatsapp-btn:hover i {
+    color: #1ebe5d;
+}
+
 @media (min-width: 992px) {
     .cw-sticky-mobile {
         display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero-5,
+    .hero-5 .th-slider,
+    .hero-5 .swiper-wrapper,
+    .hero-5 .swiper-slide,
+    .hero-5 .hero-inner {
+        height: calc(100vh - 140px);
+        min-height: 560px;
     }
 }
 
@@ -107,6 +178,15 @@
     .header-logo img,
     .mobile-logo img {
         width: 138px;
+    }
+
+    .hero-5,
+    .hero-5 .th-slider,
+    .hero-5 .swiper-wrapper,
+    .hero-5 .swiper-slide,
+    .hero-5 .hero-inner {
+        height: calc(100vh - 140px);
+        min-height: 560px;
     }
 
     .hero-style5 .hero-title {

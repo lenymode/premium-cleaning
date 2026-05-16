@@ -3,11 +3,11 @@
 @section('content')
 <section class="th-hero-wrapper hero-5" id="hero">
     <div class="shape-mockup starani" data-top="9%" data-left="9%"><img src="{{ asset('frontend/assets/img/shape/vector_shape_4.svg') }}" alt="shape"></div>
-    <div class="swiper th-slider" id="heroSlide5" data-slider-options='{"effect":"fade","autoHeight":true}'>
+    <div class="swiper th-slider" id="heroSlide5" data-slider-options='{"effect":"fade"}'>
         <div class="swiper-wrapper">
             @foreach([
                 ['image' => 'hero/hero_bg_5_1.jpg', 'title' => 'Commercial Cleaning Built for Strong Impressions', 'text' => 'Premium cleaning and facilities support for offices, commercial spaces, managed properties and high-standard residential environments.'],
-                ['image' => 'hero/hero_bg_5_1.jpg', 'title' => 'Clean Spaces. Strong Impressions.', 'text' => 'A scalable service partner for businesses, landlords, agents and property operators who need reliable cleaning delivery.'],
+                // ['image' => 'hero/hero_bg_5_1.jpg', 'title' => 'Clean Spaces. Strong Impressions.', 'text' => 'A scalable service partner for businesses, landlords, agents and property operators who need reliable cleaning delivery.'],
             ] as $slide)
                 <div class="swiper-slide">
                     <div class="hero-inner" data-bg-src="{{ asset('frontend/assets/img/'.$slide['image']) }}">
@@ -18,8 +18,8 @@
                                 <h1 class="hero-title"><span class="title1" data-ani="slideinup" data-ani-delay="0.3s">{{ $slide['title'] }}</span></h1>
                                 <p class="hero-text" data-ani="slideinup" data-ani-delay="0.5s">{{ $slide['text'] }}</p>
                                 <div class="btn-group" data-ani="slideinup" data-ani-delay="0.6s">
-                                    <a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Get Free Quote<i class="fas fa-arrow-up-right ms-2"></i></a>
-                                    <a href="tel:{{ config('site.phone_link') }}" class="th-btn style6">Click to Call<i class="fas fa-phone ms-2"></i></a>
+                                    <a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Get Quote<i class="fas fa-arrow-up-right ms-2"></i></a>
+                                    <a href="tel:{{ config('site.phone_link') }}" class="th-btn style6">Call Now<i class="fas fa-phone ms-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -29,6 +29,20 @@
         </div>
     </div>
 </section>
+
+@include('frontend.partials.about-company', [
+    'title' => 'Our Promise Is To Deliver Only The Best <span class="text-theme">Services</span>',
+    'text' => 'For over a decade, our cleaning service company is a beacon of cleanliness and professionalism. We take pride in providing top-tier cleaning solutions to businesses, ensuring their spaces are pristine, healthy, and inviting for employees.',
+    'years' => '35',
+    'buttonUrl' => route('frontend.about'),
+    'buttonText' => 'Discover More',
+    'features' => [
+        '100% Satisfaction Guaranteed',
+        'Qualityful Instrument',
+        'Expert Cleaning Team',
+        '24/7 Online Support',
+    ],
+])
 
 <section class="space cw-service-grid">
     <div class="container">

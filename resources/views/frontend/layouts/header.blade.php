@@ -66,7 +66,7 @@
                     </div>
                     <div class="col-auto">
                         <div class="header-button">
-                            <a href="https://wa.me/{{ preg_replace('/\D+/', '', config('site.whatsapp')) }}" class="simple-icon d-none d-xl-inline-block" aria-label="WhatsApp enquiry"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://wa.me/{{ preg_replace('/\D+/', '', config('site.whatsapp')) }}" class="cw-whatsapp-btn d-none d-xl-inline-flex">WhatsApp Enquiry<i class="fab fa-whatsapp ms-3"></i></a>
                             <a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Get Free Quote<i class="fas fa-arrow-up-right ms-2"></i></a>
                             <button type="button" class="th-menu-toggle d-block d-lg-none"><i class="far fa-bars"></i></button>
                         </div>
