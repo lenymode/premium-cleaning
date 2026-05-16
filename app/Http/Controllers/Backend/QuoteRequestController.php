@@ -9,13 +9,27 @@ class QuoteRequestController extends Controller
 {
     public function index()
     {
+        $query = QuoteRequest::query()
+            ->when(request('q'), fn ($query, $search) => $query->where(function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('phone', 'like', "%{$search}%")
+                    ->orWhere('service', 'like', "%{$search}%");
+            }))
+            ->when(request('status'), fn ($query, $status) => $query->where('status', $status))
+            ->latest();
+
         return view('backend.quote-requests.index', [
-            'quoteRequests' => QuoteRequest::query()->latest()->paginate(20),
+            'quoteRequests' => $query->paginate(15)->withQueryString(),
         ]);
     }
 
     public function show(QuoteRequest $quoteRequest)
     {
+        if ($quoteRequest->status === 'new') {
+            $quoteRequest->update(['status' => 'reviewed']);
+        }
+
         return view('backend.quote-requests.show', compact('quoteRequest'));
     }
 

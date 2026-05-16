@@ -18,6 +18,7 @@ class Service extends Model
         'benefits',
         'faqs',
         'image',
+        'icon_class',
         'meta_title',
         'meta_description',
         'sort_order',

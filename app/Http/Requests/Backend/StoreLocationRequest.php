@@ -20,7 +20,7 @@ class StoreLocationRequest extends FormRequest
             'postcode_area' => ['nullable', 'string', 'max:30'],
             'description' => ['nullable', 'string', 'max:1000'],
             'is_active' => ['nullable', 'boolean'],
-            'sort_order' => ['nullable', 'integer', 'min:0'],
+            'sort_order' => ['nullable', 'integer', 'min:0', 'max:9999'],
         ];
     }
 }

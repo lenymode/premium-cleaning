@@ -5,7 +5,7 @@
                 <div class="col-md-6 col-xl-4">
                     <div class="widget footer-widget">
                         <div class="th-widget-about">
-                            <div class="about-logo"><a href="{{ route('frontend.home') }}"><img src="{{ asset('frontend/logo.png') }}" alt="{{ config('site.name') }}"></a></div>
+                            <div class="about-logo"><a href="{{ route('frontend.home') }}"><img src="{{ asset('frontend/logo-white.png') }}" alt="{{ config('site.name') }}"></a></div>
                             <p class="about-text">{{ config('site.name') }} delivers premium cleaning and facilities support for commercial spaces, managed properties and residential requirements.</p>
                             <div class="th-social"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i class="fab fa-linkedin-in"></i></a> <a href="#"><i class="fab fa-instagram"></i></a> <a href="https://wa.me/{{ preg_replace('/\D+/', '', config('site.whatsapp')) }}"><i class="fab fa-whatsapp"></i></a></div>
                         </div>

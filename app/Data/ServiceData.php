@@ -12,6 +12,7 @@ final class ServiceData
         public readonly array $benefits,
         public readonly array $faqs,
         public readonly string $image,
+        public readonly string $iconClass,
         public readonly string $metaTitle,
         public readonly string $metaDescription,
     ) {

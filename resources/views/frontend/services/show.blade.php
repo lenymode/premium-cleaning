@@ -26,7 +26,9 @@
                 </ul>
                 <div class="mt-4">
                     <a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Get Free Quote<i class="fas fa-arrow-up-right ms-2"></i></a>
-                    <a href="tel:{{ config('site.phone_link') }}" class="th-btn style6 ms-lg-2 mt-2 mt-lg-0">Call {{ config('site.phone') }}</a>
+                    <div class="mt-3">
+                        @include('frontend.partials.contact-action-buttons')
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">

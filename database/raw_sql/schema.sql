@@ -4,6 +4,7 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL UNIQUE,
     email_verified_at TIMESTAMP NULL,
     password VARCHAR(255) NOT NULL,
+    avatar_path VARCHAR(255) NULL,
     remember_token VARCHAR(100) NULL,
     created_at TIMESTAMP NULL,
     updated_at TIMESTAMP NULL
@@ -83,6 +84,7 @@ CREATE TABLE services (
     benefits JSON NULL,
     faqs JSON NULL,
     image VARCHAR(255) NULL,
+    icon_class VARCHAR(80) NULL,
     meta_title VARCHAR(255) NULL,
     meta_description VARCHAR(255) NULL,
     sort_order INT UNSIGNED NOT NULL DEFAULT 0,

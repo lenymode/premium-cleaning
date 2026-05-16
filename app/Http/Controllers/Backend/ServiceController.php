@@ -6,14 +6,25 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreServiceRequest;
 use App\Http\Requests\Backend\UpdateServiceRequest;
 use App\Models\Service;
+use App\Services\Backend\ImageUploadService;
 use App\Services\Backend\ServiceManagementService;
 
 class ServiceController extends Controller
 {
     public function index()
     {
+        $query = Service::query()
+            ->when(request('q'), fn ($query, $search) => $query->where(function ($query) use ($search) {
+                $query->where('title', 'like', "%{$search}%")
+                    ->orWhere('slug', 'like', "%{$search}%")
+                    ->orWhere('excerpt', 'like', "%{$search}%");
+            }))
+            ->when(request()->filled('status'), fn ($query) => $query->where('is_active', request('status') === 'active'))
+            ->orderBy('sort_order')
+            ->latest();
+
         return view('backend.services.index', [
-            'services' => Service::query()->latest()->paginate(15),
+            'services' => $query->paginate(12)->withQueryString(),
         ]);
     }
 
@@ -46,8 +57,9 @@ class ServiceController extends Controller
         return redirect()->route('backend.services.index')->with('status', 'Service updated.');
     }
 
-    public function destroy(Service $service)
+    public function destroy(Service $service, ImageUploadService $images)
     {
+        $images->deleteFrontendImage($service->image);
         $service->delete();
 
         return redirect()->route('backend.services.index')->with('status', 'Service deleted.');
