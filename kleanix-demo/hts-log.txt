@@ -1,0 +1,15 @@
+HTTrack3.49-5 launched on Sat, 16 May 2026 03:10:44 at https://html.themehour.net/kleanix/demo/home-5.html +*/demo/* +*/assets/* +*.woff* +*.ttf* +*.eot* +*.svg* +fonts.googleapis.com/* +fonts.gstatic.com/* +cdnjs.cloudflare.com/* +cdn.jsdelivr.net/* -*/shop/* -*/rtl/*
+(httrack https://html.themehour.net/kleanix/demo/home-5.html -O ./kleanix-demo +*/demo/* +*/assets/* +*.woff* +*.ttf* +*.eot* +*.svg* +fonts.googleapis.com/* +fonts.gstatic.com/* +cdnjs.cloudflare.com/* +cdn.jsdelivr.net/* -*/shop/* -*/rtl/* -r2 -s0 )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+03:13:12	Error: 	"Not Found" (404) at link https://fonts.googleapis.com/ (from https://html.themehour.net/kleanix/demo/home-5.html)
+03:13:12	Error: 	"Not Found" (404) at link https://fonts.gstatic.com/ (from https://html.themehour.net/kleanix/demo/home-5.html)
+03:13:12	Error: 	"Not Found" (404) at link https://html.themehour.net/kleanix/demo/privacy-policy.html (from https://html.themehour.net/kleanix/demo/home-5.html)
+03:13:12	Error: 	"Not Found" (404) at link https://html.themehour.net/kleanix/demo/portfolio.html (from https://html.themehour.net/kleanix/demo/home-5.html)
+
+HTTrack Website Copier/3.49-5 mirror complete in 2 minutes 28 seconds : 150 links scanned, 146 files written (5650573 bytes overall) [2764449 bytes received at 18678 bytes/sec], 3568117 bytes transferred using HTTP compression in 66 files, ratio 17%, 25.0 requests per connection
+(4 errors, 0 warnings, 0 messages)
