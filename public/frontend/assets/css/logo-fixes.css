@@ -224,6 +224,48 @@
     object-fit: contain;
 }
 
+#service-sec .swiper-wrapper {
+    align-items: stretch;
+}
+
+#service-sec .swiper-slide {
+    display: flex;
+    height: auto;
+}
+
+#service-sec .service-card2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#service-sec .service-card2 .box-img {
+    flex: 0 0 auto;
+    aspect-ratio: 410 / 300;
+}
+
+#service-sec .service-card2 .box-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#service-sec .service-card2 .box-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+#service-sec .service-card2 .box-text {
+    flex: 1 1 auto;
+}
+
+#service-sec .service-card2 .th-btn {
+    align-self: center;
+}
+
 @media (max-width: 991px) {
     .header-layout3 .header-logo {
         width: 150px;

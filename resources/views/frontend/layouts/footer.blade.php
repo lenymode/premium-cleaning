@@ -1,3 +1,6 @@
+@php
+    $footerServices = app(\App\Services\Frontend\ServicePageService::class)->featured(6);
+@endphp
 <footer class="footer-wrapper footer-layout1" data-bg-src="{{ asset('frontend/assets/img/bg/footer_bg_4.jpg') }}">
 <div class="shape-mockup movingX d-none d-xl-block" data-bottom="80px" data-left="0%">
 <img src="{{ asset('frontend/assets/img/shape/footer_shape_1.png') }}" alt="shape">
@@ -111,23 +114,13 @@
 <h3 class="widget_title">Our Services</h3>
 <div class="menu-all-pages-container">
 <ul class="menu">
+@foreach($footerServices as $service)
 <li>
-<a href="{{ route('frontend.services.index') }}">Home Cleaning</a>
+<a href="{{ route('frontend.services.show', $service->slug) }}">{{ $service->title }}</a>
 </li>
+@endforeach
 <li>
-<a href="{{ route('frontend.services.index') }}">Office Cleaning</a>
-</li>
-<li>
-<a href="{{ route('frontend.services.index') }}">Kitchen Cleaning</a>
-</li>
-<li>
-<a href="{{ route('frontend.services.index') }}">Window Cleaning</a>
-</li>
-<li>
-<a href="{{ route('frontend.services.index') }}">Bathroom Cleaning</a>
-</li>
-<li>
-<a href="{{ route('frontend.services.index') }}">Wall Cleaning</a>
+<a href="{{ route('frontend.services.index') }}">View All Services</a>
 </li>
 </ul>
 </div>
