@@ -89,13 +89,67 @@
     margin-top: 54px;
 }
 
+.hero-style4 .cw-hero-trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 620px;
+    margin-top: 30px;
+}
+
+.hero-style4 .cw-hero-trust-badges span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.13);
+    color: #ffffff;
+    padding: 6px 10px;
+    font-family: var(--title-font);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.1;
+    box-shadow: 0 12px 28px rgba(6, 28, 69, 0.14);
+    backdrop-filter: blur(10px);
+}
+
+.hero-style4 .cw-hero-trust-badges i {
+    display: grid;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    place-items: center;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #0b7fd3;
+    font-size: 9px;
+}
+
+.hero-style4 .cw-hero-trust-badges + .hero-counter-wrap {
+    margin-top: 42px;
+}
+
 .hero-style4 .cw-hero-call {
     background-color: #ffffff;
     color: var(--title-color);
 }
 
 .hero-style4 .cw-hero-call:hover {
-    color: #ffffff;
+    color: var(--title-color);
+}
+
+.hero-style4 .cw-hero-call:hover i {
+    color: var(--title-color);
+}
+
+@media (max-width: 991px) {
+    .hero-style4 .cw-hero-trust-badges {
+        justify-content: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 @media (max-width: 575px) {
@@ -111,6 +165,29 @@
     .hero-style4 .cw-hero-actions .th-btn {
         width: min(100%, 250px);
         justify-content: center;
+    }
+
+    .hero-style4 .cw-hero-trust-badges {
+        justify-content: center;
+        gap: 8px;
+        margin-top: 24px;
+    }
+
+    .hero-style4 .cw-hero-trust-badges span {
+        min-height: 36px;
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+
+    .hero-style4 .cw-hero-trust-badges i {
+        flex-basis: 22px;
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    .hero-style4 .cw-hero-trust-badges + .hero-counter-wrap {
+        margin-top: 32px;
     }
 }
 

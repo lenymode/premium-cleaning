@@ -10852,7 +10852,7 @@ ul.comment-list:has(> .th-comment-item ~ .th-comment-item):first-child
     text-transform: capitalize;
     color: var(--white-color);
     font-weight: 700;
-    margin-bottom: 36px;
+    margin-bottom: 45px;
 }
 .hero-style4 .box-number,
 .hero-style4 .box-text {

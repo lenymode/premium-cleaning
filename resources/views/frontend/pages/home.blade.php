@@ -6,18 +6,23 @@
 <div class="container">
 <div class="hero-style4">
 <span class="sub-title2">
-<img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="shape">Clean Your Home</span>
+<img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="shape">Crestwell Facilities</span>
 <h1 class="hero-title">
-<span class="title1">We are here with</span> <span class="title2">Expert <span class="wave-title">Cleaner</span>
-</span>
+<span class="title1">Clean Spaces.</span>
+<span class="title2">Strong <span class="wave-title">Impressions</span></span>
 </h1>
 <div class="cw-hero-actions">
-<a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Get a Quote<i class="fas fa-arrow-up-right ms-2">
+<a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Get Free Quote<i class="fas fa-arrow-up-right ms-2">
 </i>
 </a>
 <a href="tel:{{ config('site.phone_link') }}" class="th-btn star-btn cw-hero-call">Call Now<i class="fas fa-phone ms-2">
 </i>
 </a>
+</div>
+<div class="cw-hero-trust-badges" aria-label="Crestwell Facilities service assurances">
+<span><i class="fa-solid fa-shield-check"></i> Insured Service</span>
+<span><i class="fa-solid fa-user-check"></i> Vetted Cleaners</span>
+<span><i class="fa-solid fa-calendar-check"></i> Flexible Contracts</span>
 </div>
 <div class="hero-counter-wrap">
 <div class="hero-counter">
@@ -39,7 +44,7 @@
 </div>
 </div>
 <div class="hero-img">
-<img src="{{ asset('frontend/assets/img/hero/hero_4_1.png') }}" alt="Image">
+<img src="{{ asset('frontend/assets/img/hero/hero_4_1.png') }}" alt="Crestwell Facilities cleaning professional">
 </div>
 <div class="hero-shape1">
 <img src="{{ asset('frontend/assets/img/hero/hero_shape_2_1.svg') }}" alt="shape">
