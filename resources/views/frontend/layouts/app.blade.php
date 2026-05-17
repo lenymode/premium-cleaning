@@ -21,9 +21,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery.datetimepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/logo-fixes.css') }}">
-    @unless(request()->routeIs('frontend.home'))
-        <link rel="stylesheet" href="{{ asset('frontend/assets/css/crestwell.css') }}">
-    @endunless
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/crestwell.css') }}?v={{ filemtime(public_path('frontend/assets/css/crestwell.css')) }}">
     <script type="application/ld+json">
         {
             "@@context": "https://schema.org",

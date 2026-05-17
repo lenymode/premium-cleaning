@@ -645,7 +645,7 @@
             </div>
         </div>
     </section> --}}
-    <div class="overflow-hidden space cw-why-section" style="margin-top: 110px !Important;">
+    <div class="overflow-hidden space cw-why-section">
         <span class="cw-why-glow cw-why-glow-1" aria-hidden="true"></span>
         <span class="cw-why-glow cw-why-glow-2" aria-hidden="true"></span>
         <span class="cw-why-wave" aria-hidden="true"></span>
@@ -808,103 +808,104 @@
             </div>
         </div>
     </section>
-    <div class="gallery-sec1" data-bg-src="{{ asset('frontend/assets/img/bg/gallery_bg_1.jpg') }}">
-        <div class="container space-top">
-            <div class="title-area text-center">
-                <span class="sub-title2">
-                    <img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="shape">Our
-                    portfolio</span>
-                <h2 class="sec-title text-white">Display of Recent Projects</h2>
+    @php
+        $googleReviewUrl = config('site.google_review_url');
+        $hasGoogleReviewUrl = filled($googleReviewUrl) && $googleReviewUrl !== '#';
+        $googleActionUrl = $hasGoogleReviewUrl ? $googleReviewUrl : route('frontend.contact');
+        $qrTarget = $hasGoogleReviewUrl ? $googleReviewUrl : route('frontend.contact');
+        $qrImage = 'https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=10&data=' . rawurlencode($qrTarget);
+    @endphp
+    <section class="space cw-google-clients-section" id="google-reviews">
+        <div class="container">
+            <div class="cw-google-review-panel">
+                <div class="cw-google-review-sidebar">
+                    <div class="cw-google-review-heading">
+                        <span class="cw-section-label">What Our Clients Say</span>
+                        <h2>Trusted by businesses and property owners</h2>
+                        <p>Google reviews help new clients choose Crestwell Facilities with confidence.</p>
+                    </div>
+                    <div class="cw-google-brand" aria-label="Google rating">
+                        <span class="cw-google-word">
+                            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+                        </span>
+                        <div class="cw-google-score-row">
+                            <div class="cw-google-stars" aria-label="5 star Google rating">
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                            </div>
+                            <strong>5.0</strong>
+                        </div>
+                        <small>Based on 120+ Reviews</small>
+                    </div>
+                    <a href="{{ $googleActionUrl }}" @if($hasGoogleReviewUrl) target="_blank" rel="noopener" @endif
+                        class="cw-google-outline-btn">{{ $hasGoogleReviewUrl ? 'See All Reviews' : 'Request a Quote' }}</a>
+                    <div class="cw-google-qr-row">
+                        <img src="{{ $qrImage }}" alt="Google review QR code">
+                        <span>{{ $hasGoogleReviewUrl ? 'Scan to leave a review' : 'Scan to send requirements' }}</span>
+                    </div>
+                </div>
+                <div class="cw-google-review-content">
+                    <div class="cw-google-review-cards">
+                        <article class="cw-google-testimonial-card">
+                            <span class="cw-google-card-mark" aria-hidden="true"><i class="fab fa-google"></i></span>
+                            <div class="cw-google-stars" aria-label="5 star review">
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                            </div>
+                            <p>"Crestwell Facilities have been absolutely fantastic. Reliable, professional and our office
+                                has never looked better."</p>
+                            <div class="cw-google-reviewer">
+                                <strong>Sarah J.</strong>
+                                <span>Office Manager</span>
+                            </div>
+                        </article>
+                        <article class="cw-google-testimonial-card">
+                            <span class="cw-google-card-mark" aria-hidden="true"><i class="fab fa-google"></i></span>
+                            <div class="cw-google-stars" aria-label="5 star review">
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                            </div>
+                            <p>"Great communication, consistent quality and a team we can always count on."</p>
+                            <div class="cw-google-reviewer">
+                                <strong>James P.</strong>
+                                <span>Property Manager</span>
+                            </div>
+                        </article>
+                        <article class="cw-google-testimonial-card">
+                            <span class="cw-google-card-mark" aria-hidden="true"><i class="fab fa-google"></i></span>
+                            <div class="cw-google-stars" aria-label="5 star review">
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                                <i class="fa-sharp fa-solid fa-star"></i>
+                            </div>
+                            <p>"They made our end of tenancy process so easy. Highly recommended."</p>
+                            <div class="cw-google-reviewer">
+                                <strong>Emily R.</strong>
+                                <span>Landlord</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="cw-google-review-dots" aria-hidden="true">
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="gallery-card3-wrap space-bottom">
-            <div class="gallery-card3 hover-item">
-                <div class="box-img">
-                    <img src="{{ asset('frontend/assets/img/gallery/gallery_1_1.jpg') }}" alt="gallery image">
-                </div>
-                <div class="box-content">
-                    <div class="media-body">
-                        <h3 class="box-title">
-                            <a href="#">Official</a>
-                        </h3>
-                        <p class="box-text">Home Cleaning</p>
-                    </div>
-                    <a href="{{ asset('frontend/assets/img/gallery/gallery_1_1.jpg') }}" class="icon-btn popup-image">
-                        <i class="far fa-plus">
-                        </i>
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-card3 hover-item">
-                <div class="box-img">
-                    <img src="{{ asset('frontend/assets/img/gallery/gallery_1_2.jpg') }}" alt="gallery image">
-                </div>
-                <div class="box-content">
-                    <div class="media-body">
-                        <h3 class="box-title">
-                            <a href="#">Industrial</a>
-                        </h3>
-                        <p class="box-text">Kitchen Cleaning</p>
-                    </div>
-                    <a href="{{ asset('frontend/assets/img/gallery/gallery_1_2.jpg') }}" class="icon-btn popup-image">
-                        <i class="far fa-plus">
-                        </i>
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-card3 hover-item item-active">
-                <div class="box-img">
-                    <img src="{{ asset('frontend/assets/img/gallery/gallery_1_3.jpg') }}" alt="gallery image">
-                </div>
-                <div class="box-content">
-                    <div class="media-body">
-                        <h3 class="box-title">
-                            <a href="#">Residencial</a>
-                        </h3>
-                        <p class="box-text">Window Cleaning</p>
-                    </div>
-                    <a href="{{ asset('frontend/assets/img/gallery/gallery_1_3.jpg') }}" class="icon-btn popup-image">
-                        <i class="far fa-plus">
-                        </i>
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-card3 hover-item">
-                <div class="box-img">
-                    <img src="{{ asset('frontend/assets/img/gallery/gallery_1_4.jpg') }}" alt="gallery image">
-                </div>
-                <div class="box-content">
-                    <div class="media-body">
-                        <h3 class="box-title">
-                            <a href="#">Corporate</a>
-                        </h3>
-                        <p class="box-text">Bathroom Cleaning</p>
-                    </div>
-                    <a href="{{ asset('frontend/assets/img/gallery/gallery_1_4.jpg') }}" class="icon-btn popup-image">
-                        <i class="far fa-plus">
-                        </i>
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-card3 hover-item">
-                <div class="box-img">
-                    <img src="{{ asset('frontend/assets/img/gallery/gallery_1_5.jpg') }}" alt="gallery image">
-                </div>
-                <div class="box-content">
-                    <div class="media-body">
-                        <h3 class="box-title">
-                            <a href="#">Business</a>
-                        </h3>
-                        <p class="box-text">Plumbing Service</p>
-                    </div>
-                    <a href="{{ asset('frontend/assets/img/gallery/gallery_1_5.jpg') }}" class="icon-btn popup-image">
-                        <i class="far fa-plus">
-                        </i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
     <section class="space" id="blog-sec">
         <div class="shape-mockup jump d-none d-xl-block" data-top="30%" data-left="0%">
             <img src="{{ asset('frontend/assets/img/shape/tool_shape_4.png') }}" alt="shape">
