@@ -480,7 +480,7 @@
 <a href="https://wa.me/{{ preg_replace('/\D+/', '', config('site.whatsapp')) }}" class="cw-navbar-whatsapp">WhatsApp Inquiry<i class="fab fa-whatsapp">
 </i>
 </a>
-<a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Contact Us<i class="fas fa-arrow-up-right ms-2">
+<a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Get a Quote<i class="fas fa-arrow-up-right ms-2">
 </i>
 </a> <button type="button" class="th-menu-toggle d-block d-lg-none">
 <i class="far fa-bars">

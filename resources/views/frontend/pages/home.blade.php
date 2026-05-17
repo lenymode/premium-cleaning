@@ -11,9 +11,14 @@
 <span class="title1">We are here with</span> <span class="title2">Expert <span class="wave-title">Cleaner</span>
 </span>
 </h1>
-<a href="{{ route('frontend.about') }}" class="th-btn star-btn">Learn more<i class="fas fa-arrow-up-right ms-2">
+<div class="cw-hero-actions">
+<a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Get a Quote<i class="fas fa-arrow-up-right ms-2">
 </i>
 </a>
+<a href="tel:{{ config('site.phone_link') }}" class="th-btn star-btn cw-hero-call">Call Now<i class="fas fa-phone ms-2">
+</i>
+</a>
+</div>
 <div class="hero-counter-wrap">
 <div class="hero-counter">
 <div class="box-number">

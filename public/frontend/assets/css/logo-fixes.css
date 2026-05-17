@@ -77,9 +77,40 @@
     font-size: 18px;
 }
 
+.hero-style4 .cw-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 0;
+}
+
+.hero-style4 .cw-hero-actions + .hero-counter-wrap {
+    margin-top: 54px;
+}
+
+.hero-style4 .cw-hero-call {
+    background-color: #ffffff;
+    color: var(--title-color);
+}
+
+.hero-style4 .cw-hero-call:hover {
+    color: #ffffff;
+}
+
 @media (max-width: 575px) {
     .header-layout3 .cw-navbar-whatsapp {
         display: none;
+    }
+
+    .hero-style4 .cw-hero-actions {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero-style4 .cw-hero-actions .th-btn {
+        width: min(100%, 250px);
+        justify-content: center;
     }
 }
 
