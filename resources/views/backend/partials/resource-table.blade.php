@@ -1,4 +1,34 @@
+@php
+    $pageSizeOptions = [10, 25, 50, 100];
+    $currentPageSize = $items->perPage();
+@endphp
+
 <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+    <div class="flex flex-col gap-3 border-b border-slate-100 bg-white px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+            <p class="text-sm font-bold text-slate-900">
+                Showing {{ $items->firstItem() ?? 0 }}-{{ $items->lastItem() ?? 0 }} of {{ $items->total() }}
+            </p>
+            <p class="text-xs font-semibold text-slate-500">Use the page size control to choose how many rows appear.</p>
+        </div>
+        <form method="GET" class="flex items-center gap-2">
+            @foreach(request()->except(['per_page', 'page']) as $key => $value)
+                @if(is_array($value))
+                    @foreach($value as $nestedValue)
+                        <input type="hidden" name="{{ $key }}[]" value="{{ $nestedValue }}">
+                    @endforeach
+                @else
+                    <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+                @endif
+            @endforeach
+            <label class="text-xs font-black uppercase tracking-wide text-slate-500" for="per-page-{{ $routePrefix }}">Rows</label>
+            <select id="per-page-{{ $routePrefix }}" name="per_page" class="rounded-2xl border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700 focus:border-blue-500 focus:ring-blue-500" onchange="this.form.submit()">
+                @foreach($pageSizeOptions as $option)
+                    <option value="{{ $option }}" @selected($currentPageSize === $option)>{{ $option }}</option>
+                @endforeach
+            </select>
+        </form>
+    </div>
     <div class="overflow-x-auto">
         <table class="w-full min-w-[760px] text-left text-sm">
             <thead class="bg-slate-50 text-xs font-black uppercase tracking-wide text-slate-500">
@@ -73,6 +103,6 @@
         </table>
     </div>
     @if($items->hasPages())
-        <div class="border-t border-slate-100 p-4">{{ $items->links() }}</div>
+        <div class="border-t border-slate-100 bg-slate-50/60 px-4 py-4">{{ $items->links() }}</div>
     @endif
 </div>

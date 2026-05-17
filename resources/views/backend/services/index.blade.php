@@ -3,6 +3,7 @@
 @section('content')
 <div class="mb-6 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
     <form class="grid gap-3 md:grid-cols-[1fr_180px_auto]" method="GET">
+        <input type="hidden" name="per_page" value="{{ request('per_page', 10) }}">
         <input class="rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500" name="q" value="{{ request('q') }}" placeholder="Search services by title, slug or excerpt">
         <select class="rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500" name="status">
             <option value="">All statuses</option>

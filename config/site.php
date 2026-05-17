@@ -11,4 +11,5 @@ return [
     'google_maps_embed' => env('SITE_GOOGLE_MAPS_EMBED', 'https://www.google.com/maps?q=United%20Kingdom&output=embed'),
     'google_review_url' => env('SITE_GOOGLE_REVIEW_URL', '#'),
     'analytics_id' => env('SITE_GOOGLE_ANALYTICS_ID'),
+    'lead_recipient' => env('SITE_LEAD_RECIPIENT', env('SITE_EMAIL', 'info@crestwellfacilities.com')),
 ];

@@ -54,8 +54,14 @@
 </footer>
 
 <div class="cw-sticky-mobile">
-    <a href="https://wa.me/{{ preg_replace('/\D+/', '', config('site.whatsapp')) }}">WhatsApp</a>
-    <a href="tel:{{ config('site.phone_link') }}">Call Now</a>
+    <a href="https://wa.me/{{ preg_replace('/\D+/', '', config('site.whatsapp')) }}" class="cw-sticky-whatsapp">
+        <span><i class="fab fa-whatsapp"></i></span>
+        <strong>WhatsApp</strong>
+    </a>
+    <a href="tel:{{ config('site.phone_link') }}" class="cw-sticky-call">
+        <span><i class="fas fa-phone"></i></span>
+        <strong>Call Now</strong>
+    </a>
 </div>
 <div class="scroll-top">
     <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102"><path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path></svg>

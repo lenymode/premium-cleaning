@@ -9,6 +9,8 @@ class QuoteRequestController extends Controller
 {
     public function index()
     {
+        $perPage = $this->tablePerPage();
+
         $query = QuoteRequest::query()
             ->when(request('q'), fn ($query, $search) => $query->where(function ($query) use ($search) {
                 $query->where('name', 'like', "%{$search}%")
@@ -20,7 +22,7 @@ class QuoteRequestController extends Controller
             ->latest();
 
         return view('backend.quote-requests.index', [
-            'quoteRequests' => $query->paginate(15)->withQueryString(),
+            'quoteRequests' => $query->paginate($perPage)->withQueryString(),
         ]);
     }
 
