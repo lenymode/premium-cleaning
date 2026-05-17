@@ -710,22 +710,17 @@
     <section class="space-top" id="testi-sec">
         <div class="container">
             <div class="testi-box2-area">
-                <div class="row g-0 flex-row-reverse">
-                    <div class="col-lg-5 order-2 order-lg-0">
-                        <div class="testi-box2-img">
-                            <img src="{{ asset('frontend/assets/img/testimonial/testi_2_1.jpg') }}" alt="Image">
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
+                <div class="row g-0 justify-content-center">
+                    <div class="col-lg-10 col-xl-9">
                         <div class="testi-box2-slide">
                             <div class="title-area mb-40 text-center text-lg-start">
                                 <span class="sub-title2">
                                     <img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}"
                                         alt="Icon">Testimonials</span>
-                                <h2 class="sec-title">Client <span class="text-theme">Feedback</span> Data</h2>
+                                <h2 class="sec-title">Trusted Cleaning, Told by <span class="text-theme">Our Clients</span></h2>
                             </div>
                             <div class="swiper th-slider" id="testiSlide2"
-                                data-slider-options='{"effect":"slide","thumbs":{"swiper":".testi-box-thumb"}}'>
+                                data-slider-options='{"effect":"slide","loop":true,"autoHeight":true}'>
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="testi-box2">
@@ -741,12 +736,10 @@
                                                 <i class="fa-sharp fa-solid fa-star">
                                                 </i>
                                             </div>
-                                            <p class="box-text">The clean service I recently received was nothing to an
-                                                hide for every short of exceptional. From the moment they arrived, their a
-                                                professionalism was evident, and they carried out their tasks with a utmost
-                                                precision. Every nook and cranny was thoroughly cleaned, leaving my are a
-                                                space spotless and refreshed. I was thoroughly impressed with their
-                                                attention to detail and commitment to ensuring a pristine environment.</p>
+                                            <p class="box-text">Crestwell Facilities made a visible difference from the
+                                                first visit. Their team arrived on time, worked carefully around our staff,
+                                                and left every shared area looking fresh, organised, and ready for the next
+                                                working day.</p>
                                             <div class="box-profile">
                                                 <div class="box-img">
                                                     <img src="{{ asset('frontend/assets/img/testimonial/testi_3_1.jpg') }}"
@@ -773,12 +766,9 @@
                                                 <i class="fa-sharp fa-solid fa-star">
                                                 </i>
                                             </div>
-                                            <p class="box-text">The clean service I recently received was nothing to an
-                                                hide for every short of exceptional. From the moment they arrived, their a
-                                                professionalism was evident, and they carried out their tasks with a utmost
-                                                precision. Every nook and cranny was thoroughly cleaned, leaving my are a
-                                                space spotless and refreshed. I was thoroughly impressed with their
-                                                attention to detail and commitment to ensuring a pristine environment.</p>
+                                            <p class="box-text">Reliable communication, consistent standards, and a team
+                                                we can trust with our property. Crestwell keeps the cleaning simple for us,
+                                                which is exactly what we need from a facilities partner.</p>
                                             <div class="box-profile">
                                                 <div class="box-img">
                                                     <img src="{{ asset('frontend/assets/img/testimonial/testi_3_2.jpg') }}"
@@ -821,91 +811,117 @@
                 <div class="cw-google-review-sidebar">
                     <div class="cw-google-review-heading">
                         <span class="cw-section-label">What Our Clients Say</span>
-                        <h2>Trusted by businesses and property owners</h2>
+                        <h2>Reviews That Reflect Reliable Cleaning</h2>
                         <p>Google reviews help new clients choose Crestwell Facilities with confidence.</p>
                     </div>
-                    <div class="cw-google-brand" aria-label="Google rating">
-                        <span class="cw-google-word">
-                            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
-                        </span>
-                        <div class="cw-google-score-row">
-                            <div class="cw-google-stars" aria-label="5 star Google rating">
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
+                </div>
+                <div class="cw-google-review-content">
+                    <div class="swiper th-slider cw-google-review-cards" id="googleReviewSlider"
+                        data-slider-options='{"loop":true,"spaceBetween":20,"breakpoints":{"0":{"slidesPerView":1},"768":{"slidesPerView":2},"1200":{"slidesPerView":3}}}'>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <article class="cw-google-testimonial-card">
+                                    <span class="cw-google-card-mark" aria-hidden="true"><i class="fab fa-google"></i></span>
+                                    <div class="cw-google-stars" aria-label="5 star review">
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                    </div>
+                                    <p>"Crestwell Facilities have been absolutely fantastic. Reliable, professional and our office
+                                        has never looked better."</p>
+                                    <div class="cw-google-reviewer">
+                                        <strong>Sarah J.</strong>
+                                        <span>Office Manager</span>
+                                    </div>
+                                </article>
                             </div>
-                            <strong>5.0</strong>
+                            <div class="swiper-slide">
+                                <article class="cw-google-testimonial-card">
+                                    <span class="cw-google-card-mark" aria-hidden="true"><i class="fab fa-google"></i></span>
+                                    <div class="cw-google-stars" aria-label="5 star review">
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                    </div>
+                                    <p>"Great communication, consistent quality and a team we can always count on."</p>
+                                    <div class="cw-google-reviewer">
+                                        <strong>James P.</strong>
+                                        <span>Property Manager</span>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="swiper-slide">
+                                <article class="cw-google-testimonial-card">
+                                    <span class="cw-google-card-mark" aria-hidden="true"><i class="fab fa-google"></i></span>
+                                    <div class="cw-google-stars" aria-label="5 star review">
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                    </div>
+                                    <p>"They made our end of tenancy process so easy. Highly recommended."</p>
+                                    <div class="cw-google-reviewer">
+                                        <strong>Emily R.</strong>
+                                        <span>Landlord</span>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="swiper-slide">
+                                <article class="cw-google-testimonial-card">
+                                    <span class="cw-google-card-mark" aria-hidden="true"><i class="fab fa-google"></i></span>
+                                    <div class="cw-google-stars" aria-label="5 star review">
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                        <i class="fa-sharp fa-solid fa-star"></i>
+                                    </div>
+                                    <p>"The team were punctual, careful with access and very easy to deal with throughout the contract."</p>
+                                    <div class="cw-google-reviewer">
+                                        <strong>Mark L.</strong>
+                                        <span>Facilities Lead</span>
+                                    </div>
+                                </article>
+                            </div>
                         </div>
-                        <small>Based on 120+ Reviews</small>
+                        <div class="cw-google-review-dots slider-pagination"></div>
                     </div>
-                    <a href="{{ $googleActionUrl }}" @if($hasGoogleReviewUrl) target="_blank" rel="noopener" @endif
-                        class="cw-google-outline-btn">{{ $hasGoogleReviewUrl ? 'See All Reviews' : 'Request a Quote' }}</a>
+                </div>
+                <div class="cw-google-review-footer">
+                    <div class="cw-google-footer-rating">
+                        <div class="cw-google-brand" aria-label="Google rating">
+                            <span class="cw-google-word">
+                                <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+                            </span>
+                            <div class="cw-google-score-row">
+                                <div class="cw-google-stars" aria-label="5 star Google rating">
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                    <i class="fa-sharp fa-solid fa-star"></i>
+                                </div>
+                                <strong>5.0</strong>
+                            </div>
+                            <small>Based on 120+ Reviews</small>
+                        </div>
+                        <a href="{{ $googleActionUrl }}" @if($hasGoogleReviewUrl) target="_blank" rel="noopener" @endif
+                            class="cw-google-outline-btn">{{ $hasGoogleReviewUrl ? 'See All Reviews' : 'Request a Quote' }}</a>
+                    </div>
                     <div class="cw-google-qr-row">
                         <img src="{{ $qrImage }}" alt="Google review QR code">
                         <span>{{ $hasGoogleReviewUrl ? 'Scan to leave a review' : 'Scan to send requirements' }}</span>
                     </div>
                 </div>
-                <div class="cw-google-review-content">
-                    <div class="cw-google-review-cards">
-                        <article class="cw-google-testimonial-card">
-                            <span class="cw-google-card-mark" aria-hidden="true"><i class="fab fa-google"></i></span>
-                            <div class="cw-google-stars" aria-label="5 star review">
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                            </div>
-                            <p>"Crestwell Facilities have been absolutely fantastic. Reliable, professional and our office
-                                has never looked better."</p>
-                            <div class="cw-google-reviewer">
-                                <strong>Sarah J.</strong>
-                                <span>Office Manager</span>
-                            </div>
-                        </article>
-                        <article class="cw-google-testimonial-card">
-                            <span class="cw-google-card-mark" aria-hidden="true"><i class="fab fa-google"></i></span>
-                            <div class="cw-google-stars" aria-label="5 star review">
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                            </div>
-                            <p>"Great communication, consistent quality and a team we can always count on."</p>
-                            <div class="cw-google-reviewer">
-                                <strong>James P.</strong>
-                                <span>Property Manager</span>
-                            </div>
-                        </article>
-                        <article class="cw-google-testimonial-card">
-                            <span class="cw-google-card-mark" aria-hidden="true"><i class="fab fa-google"></i></span>
-                            <div class="cw-google-stars" aria-label="5 star review">
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                                <i class="fa-sharp fa-solid fa-star"></i>
-                            </div>
-                            <p>"They made our end of tenancy process so easy. Highly recommended."</p>
-                            <div class="cw-google-reviewer">
-                                <strong>Emily R.</strong>
-                                <span>Landlord</span>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="cw-google-review-dots" aria-hidden="true">
-                        <span class="active"></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
+    @if (false)
     <section class="space" id="blog-sec">
         <div class="shape-mockup jump d-none d-xl-block" data-top="30%" data-left="0%">
             <img src="{{ asset('frontend/assets/img/shape/tool_shape_4.png') }}" alt="shape">
@@ -1083,6 +1099,7 @@
             </div>
         </div>
     </section>
+    @endif
     <div class="space-bottom">
         <div class="shape-mockup moving d-none d-xl-block" data-bottom="0%" data-right="0%">
             <img src="{{ asset('frontend/assets/img/shape/tool_shape_5.png') }}" alt="shape">
