@@ -10,6 +10,10 @@
     width: 18rem;
 }
 
+.admin-sidebar img {
+    object-fit: contain;
+}
+
 .admin-field-error {
     margin-top: 0.5rem;
     color: #dc2626;

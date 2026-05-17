@@ -24,13 +24,14 @@
         collapsed: localStorage.getItem('cw-admin-collapsed') === '1',
         mobileOpen: false,
         profileOpen: false,
+        settingsOpen: {{ request()->routeIs('backend.settings.*') ? 'true' : 'false' }},
         toastOpen: true,
         toggleSidebar() {
             this.collapsed = !this.collapsed;
             localStorage.setItem('cw-admin-collapsed', this.collapsed ? '1' : '0');
         }
     }"
-    x-init="setTimeout(() => toastOpen = false, 4800)"
+    x-init="setTimeout(() => toastOpen = false, 4000)"
     class="min-h-screen"
 >
     <div x-show="mobileOpen" x-cloak class="fixed inset-0 z-40 bg-slate-950/50 lg:hidden" @click="mobileOpen = false"></div>
@@ -48,7 +49,7 @@
         <div class="flex h-24 items-center justify-center border-b border-white/10" :class="collapsed && !mobileOpen ? 'px-3' : 'px-5'">
             <a href="{{ route('backend.dashboard') }}" class="flex min-w-0 items-center">
                 <img
-                    src="{{ asset('frontend/logo-white.png') }}"
+                    src="{{ asset('frontend/assets/img/'.config('site.logo_white')) }}"
                     alt="{{ config('site.name') }}"
                     class="h-auto max-h-16 w-auto object-contain transition-all duration-300"
                     :class="collapsed && !mobileOpen ? 'max-h-12 max-w-12' : 'max-w-[210px]'"
@@ -64,6 +65,27 @@
                     <span x-show="!collapsed || mobileOpen" x-transition>{{ $item['label'] }}</span>
                 </a>
             @endforeach
+
+            <div>
+                @php($settingsActive = request()->routeIs('backend.settings.*'))
+                <button type="button" class="group flex w-full items-center gap-3 rounded-2xl px-3 py-3 text-left text-sm font-semibold transition {{ $settingsActive ? 'bg-blue-600 text-white shadow-lg shadow-blue-950/40' : 'text-slate-300 hover:bg-white/10 hover:text-white' }}" :class="collapsed && !mobileOpen ? 'justify-center' : ''" @click="settingsOpen = !settingsOpen">
+                    <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.4 13.5c.1-.5.1-1 .1-1.5s0-1-.1-1.5l2-1.5-2-3.5-2.4 1a7.6 7.6 0 0 0-2.6-1.5L14 2h-4l-.4 2.5A7.6 7.6 0 0 0 7 6L4.6 5 2.6 8.5l2 1.5c-.1.5-.1 1-.1 1.5s0 1 .1 1.5l-2 1.5 2 3.5 2.4-1a7.6 7.6 0 0 0 2.6 1.5L10 22h4l.4-2.5A7.6 7.6 0 0 0 17 18l2.4 1 2-3.5-2-1.5ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z"/></svg>
+                    <span x-show="!collapsed || mobileOpen" x-transition class="flex flex-1 items-center justify-between">
+                        <span>Settings</span>
+                        <svg class="h-4 w-4 transition-transform" :class="settingsOpen ? 'rotate-180' : ''" viewBox="0 0 20 20" fill="currentColor"><path d="M5.3 7.3a1 1 0 0 1 1.4 0L10 10.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 0-1.4Z"/></svg>
+                    </span>
+                </button>
+                <div x-show="settingsOpen && (!collapsed || mobileOpen)" x-cloak x-transition class="ml-6 mt-2 space-y-1 border-l border-white/10 pl-3">
+                    <a href="{{ route('backend.settings.company-information.edit') }}" class="group flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-bold transition duration-200 {{ request()->routeIs('backend.settings.company-information.*') ? 'bg-white text-slate-950 shadow-lg shadow-slate-950/20' : 'text-slate-400 hover:translate-x-1 hover:bg-blue-500/15 hover:text-white' }}">
+                        <span class="h-1.5 w-1.5 rounded-full {{ request()->routeIs('backend.settings.company-information.*') ? 'bg-blue-600' : 'bg-slate-500 group-hover:bg-blue-300' }}"></span>
+                        Company Information
+                    </a>
+                    <a href="{{ route('backend.settings.edit') }}" class="group flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-bold transition duration-200 {{ request()->routeIs('backend.settings.edit') ? 'bg-white text-slate-950 shadow-lg shadow-slate-950/20' : 'text-slate-400 hover:translate-x-1 hover:bg-blue-500/15 hover:text-white' }}">
+                        <span class="h-1.5 w-1.5 rounded-full {{ request()->routeIs('backend.settings.edit') ? 'bg-blue-600' : 'bg-slate-500 group-hover:bg-blue-300' }}"></span>
+                        Profile & Security
+                    </a>
+                </div>
+            </div>
         </nav>
 
         <div class="border-t border-white/10 p-3">
@@ -82,7 +104,7 @@
                         <span class="text-xl leading-none">≡</span>
                     </button>
                     <div class="min-w-0">
-                        <p class="text-xs font-bold uppercase tracking-[.22em] text-blue-600">Crestwell Admin</p>
+                        <p class="text-xs font-bold uppercase tracking-[.22em] text-blue-600">{{ config('site.name') }} Admin</p>
                         <h1 class="truncate text-xl font-black text-slate-950 sm:text-2xl">{{ $title ?? 'Dashboard' }}</h1>
                     </div>
                 </div>
@@ -110,7 +132,8 @@
                                 <p class="font-bold">{{ $user?->name }}</p>
                                 <p class="truncate text-sm text-slate-500">{{ $user?->email }}</p>
                             </div>
-                            <a href="{{ route('backend.settings.edit') }}" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">Profile & Settings</a>
+                            <a href="{{ route('backend.settings.company-information.edit') }}" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">Company Information</a>
+                            <a href="{{ route('backend.settings.edit') }}" class="block px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">Profile & Security</a>
                             <form method="POST" action="{{ route('logout') }}" class="border-t border-slate-100">
                                 @csrf
                                 <button class="block w-full px-4 py-3 text-left text-sm font-semibold text-red-600 hover:bg-red-50">Logout</button>
@@ -137,28 +160,30 @@
         </main>
     </div>
 
-    <div class="fixed bottom-5 right-5 z-50 space-y-3">
+    <div class="fixed left-1/2 top-8 z-50 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 space-y-3">
         @if(session('status'))
-            <div x-show="toastOpen" x-transition class="max-w-sm rounded-3xl border border-emerald-200 bg-white p-4 shadow-2xl shadow-slate-950/15">
+            <div x-show="toastOpen" x-transition class="relative overflow-hidden rounded-3xl border border-emerald-200/80 bg-white/95 p-4 shadow-2xl shadow-slate-950/20 backdrop-blur">
+                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-blue-500 to-emerald-400"></div>
                 <div class="flex gap-3">
-                    <div class="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-emerald-100 font-black text-emerald-700">✓</div>
+                    <div class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-emerald-100 text-lg font-black text-emerald-700 ring-4 ring-emerald-50">✓</div>
                     <div>
                         <p class="font-bold text-slate-950">Success</p>
                         <p class="text-sm text-slate-600">{{ session('status') }}</p>
                     </div>
-                    <button class="ml-3 text-slate-400 hover:text-slate-700" @click="toastOpen = false">×</button>
+                    <button class="ml-auto grid h-8 w-8 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700" @click="toastOpen = false">×</button>
                 </div>
             </div>
         @endif
         @if($errors->any())
-            <div x-show="toastOpen" x-transition class="max-w-sm rounded-3xl border border-red-200 bg-white p-4 shadow-2xl shadow-slate-950/15">
+            <div x-show="toastOpen" x-transition class="relative overflow-hidden rounded-3xl border border-red-200/80 bg-white/95 p-4 shadow-2xl shadow-slate-950/20 backdrop-blur">
+                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-red-400 via-orange-400 to-red-400"></div>
                 <div class="flex gap-3">
-                    <div class="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-red-100 font-black text-red-700">!</div>
+                    <div class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-red-100 text-lg font-black text-red-700 ring-4 ring-red-50">!</div>
                     <div>
                         <p class="font-bold text-slate-950">Validation error</p>
                         <p class="text-sm text-slate-600">Some fields need your attention.</p>
                     </div>
-                    <button class="ml-3 text-slate-400 hover:text-slate-700" @click="toastOpen = false">×</button>
+                    <button class="ml-auto grid h-8 w-8 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700" @click="toastOpen = false">×</button>
                 </div>
             </div>
         @endif

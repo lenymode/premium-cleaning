@@ -156,6 +156,17 @@ function wireAdminValidation() {
         return;
     }
 
+    const firstServerError = document.querySelector('.border-red-400');
+    if (firstServerError) {
+        window.requestAnimationFrame(() => {
+            firstServerError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            if (typeof firstServerError.focus === 'function') {
+                firstServerError.focus({ preventScroll: true });
+            }
+        });
+    }
+
     document.querySelectorAll('form').forEach((form) => {
         form.noValidate = true;
 
