@@ -68,11 +68,11 @@
     </div>
     <section class="space-top" id="service-sec">
         <div class="shape-mockup jump d-none d-xxl-block" data-top="15%" data-left="2%">
-            <img src="{{ asset('frontend/assets/img/shape/tool_shape_1.png') }}" alt="shape">
-        </div>
-        <div class="shape-mockup jump-reverse" data-top="10%" data-right="0%">
             <img src="{{ asset('frontend/assets/img/shape/vector_shape_1.png') }}" alt="shape">
         </div>
+        {{-- <div class="shape-mockup jump-reverse" data-top="10%" data-right="0%">
+            <img src="{{ asset('frontend/assets/img/shape/vector_shape_1.png') }}" alt="shape">
+        </div> --}}
         <div class="container">
             <div class="row justify-content-lg-between justify-content-center align-items-end">
                 <div class="col-lg">
@@ -161,20 +161,22 @@
                 <div class="col-xl-6 mb-30 mb-xl-0">
                     <div class="img-box3">
                         <div class="img1">
-                            <img src="{{ asset('frontend/assets/img/normal/about_1_1.jpg') }}" alt="About">
+                            <img src="{{ asset('frontend/assets/img/normal/about_1_1.jpg') }}"
+                                alt="Insured cleaning professional">
                         </div>
                         <div class="right-half">
                             <div class="feature-circle">
                                 <div class="progressbar">
-                                    <div class="circle" data-percent="90">
+                                    <div class="circle" data-percent="100">
                                         <div class="circle-num">
                                         </div>
                                     </div>
-                                    <h3 class="box-title">Project Done</h3>
+                                    <h3 class="box-title">Quality Checked</h3>
                                 </div>
                             </div>
                             <div class="img2">
-                                <img src="{{ asset('frontend/assets/img/normal/about_1_2.jpg') }}" alt="About">
+                                <img src="{{ asset('frontend/assets/img/normal/about_1_2.jpg') }}"
+                                    alt="Vetted cleaner at work">
                             </div>
                         </div>
                         <div class="box-shape spin">
@@ -185,23 +187,23 @@
                 <div class="col-xl-6">
                     <div class="title-area mb-32">
                         <span class="sub-title2">
-                            <img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="shape">About
-                            Us</span>
-                        <h2 class="sec-title">Over 35 Years Leading in <span class="text-theme">Cleaning</span> Industry
+                            <img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="shape">Trust,
+                            Insured & Vetted</span>
+                        <h2 class="sec-title">Cleaners You Can <span class="text-theme">Trust</span> in Every Space
                         </h2>
-                        <p class="sec-text">Welcome to our cleaning service company, where we bring over 25 years of
-                            expertise to every job. Our dedicated team ensures your space is impeccably clean, creating a
-                            healthier environment for all. where we bring over 25 years of expertise to every dedicated job.
+                        <p class="sec-text">Every Crestwell Facilities cleaner is carefully vetted, trained, and supported
+                            by insured service standards. From offices to shared spaces, we give clients reliable cleaning
+                            teams who work respectfully, arrive prepared, and protect the places they care for.
                         </p>
                     </div>
-                    <div class="about-feature2-wrap">
+                    <div class="about-feature2-wrap cw-home-trust-features">
                         <div class="about-feature2">
                             <div class="box-icon">
                                 <img src="{{ asset('frontend/assets/img/icon/about_feature_1.svg') }}" alt="icon">
                             </div>
                             <div class="media-body">
-                                <h3 class="box-title">Modern Technology</h3>
-                                <p class="box-text">We Use Modern Technology Cleaner for our customer</p>
+                                <h3 class="box-title">Trusted Cleaners</h3>
+                                <p class="box-text">Reliable teams into your space.</p>
                             </div>
                         </div>
                         <div class="about-feature2">
@@ -209,24 +211,42 @@
                                 <img src="{{ asset('frontend/assets/img/icon/about_feature_2.svg') }}" alt="icon">
                             </div>
                             <div class="media-body">
-                                <h3 class="box-title">Expert Team</h3>
-                                <p class="box-text">Our expert team skill is very high & they work carefully</p>
+                                <h3 class="box-title">Insured Service</h3>
+                                <p class="box-text">Your premises are protected by responsible cleaning support.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature2">
+                            <div class="box-icon">
+                                <img src="{{ asset('frontend/assets/img/icon/about_feature_3.svg') }}" alt="icon">
+                            </div>
+                            <div class="media-body">
+                                <h3 class="box-title">Vetted Cleaners</h3>
+                                <p class="box-text">Our cleaners are checked, trained to professional spaces.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature2">
+                            <div class="box-icon cw-gold-badge-icon">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div class="media-body">
+                                <h3 class="box-title">Certified Standards</h3>
+                                <p class="box-text">Work is delivered to trusted, quality checked cleaning standards.</p>
                             </div>
                         </div>
                     </div>
                     <div class="btn-group">
-                        <a href="{{ route('frontend.about') }}" class="th-btn">More Details<i
+                        <a href="{{ route('frontend.contact') }}" class="th-btn">GET A FREE Quote<i
                                 class="fas fa-arrow-up-right ms-2">
                             </i>
                         </a>
-                        <div class="about-signature">
+                        {{-- <div class="about-signature">
                             <div class="box-img">
                                 <img src="{{ asset('frontend/assets/img/normal/about_author.jpg') }}" alt="Image">
                             </div>
                             <div class="signature">
                                 <img src="{{ asset('frontend/assets/img/normal/about_signature.jpg') }}" alt="Image">
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
