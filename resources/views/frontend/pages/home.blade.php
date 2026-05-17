@@ -274,7 +274,7 @@
                             </i>
                         </a>
                     </div>
-                    <h2 class="sec-title text-white">Prioritizes Cleanliness and Offers Top-Notch Service</h2>
+                    <h2 class="sec-title text-white">We Prioritize Cleanliness and Deliver Top-Notch Service</h2>
                 </div>
             </div>
         </div>
@@ -291,57 +291,77 @@
                             <div class="title-area mb-32">
                                 <span class="sub-title2">
                                     <img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}"
-                                        alt="shape">Get In touch</span>
-                                <h2 class="sec-title text-white">Our Cleaning <span class="text-theme">Service</span> Sets
-                                    the Standard</h2>
-                                <p class="sec-text text-white">Elevate your space with our thorough cleaning service,
-                                    ensuring impeccable cleanliness and a welcoming atmosphere. Where we bring over
-                                    dedicated hundred years of expertise to every job.</p>
+                                        alt="shape">Quote Enquiry</span>
+                                <h2 class="sec-title text-white">Reliable <span class="text-theme">Cleaning</span> Support
+                                    for Your Property</h2>
+                                <p class="sec-text text-white">Tell us what needs cleaning and where the service is
+                                    required. Crestwell provides commercial cleaning, property cleaning, deep cleaning,
+                                    tenancy support, and facilities-led cleaning with clear quotes and dependable teams.</p>
                             </div>
-                            <a href="{{ route('frontend.contact') }}" class="th-btn star-btn">Get in Touch<i
-                                    class="fas fa-arrow-up-right ms-2">
-                                </i>
-                            </a>
+                            <div class="btn-group cw-section-quote-actions justify-content-xl-start justify-content-center">
+                                <a href="https://wa.me/{{ preg_replace('/\D+/', '', config('site.whatsapp')) }}"
+                                    class="cw-navbar-whatsapp">WhatsApp Inquiry<i class="fab fa-whatsapp">
+                                    </i>
+                                </a>
+                                <a href="tel:{{ config('site.phone_link') }}" class="th-btn star-btn cw-hero-call">Call Now<i
+                                        class="fas fa-phone ms-2">
+                                    </i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-xl-5">
-                        <form action="javascript:void(0)" method="POST" class="contact-form1 ajax-contact">
-                            <h3 class="form-title">Make Appoinment</h3>
+                        <form action="{{ route('frontend.quote-requests.store') }}" method="POST"
+                            class="contact-form1 cw-home-quote-form">
+                            @csrf
+                            <h3 class="form-title">Request a Quote</h3>
                             <div class="input-wrap">
                                 <div class="row">
+                                    @if (session('status'))
+                                        <div class="form-group col-12">
+                                            <p class="alert alert-success mb-0">{{ session('status') }}</p>
+                                        </div>
+                                    @endif
                                     <div class="form-group col-12">
                                         <input type="text" class="form-control" name="name" id="name"
-                                            placeholder="Your Name"> <i class="fal fa-user">
+                                            value="{{ old('name') }}" placeholder="Your Name" required> <i class="fal fa-user">
                                         </i>
+                                        @error('name')<small class="text-danger">{{ $message }}</small>@enderror
                                     </div>
                                     <div class="form-group col-12">
                                         <input type="email" class="form-control" name="email" id="email"
-                                            placeholder="Email Address"> <i class="fal fa-envelope">
+                                            value="{{ old('email') }}" placeholder="Email Address" required> <i class="fal fa-envelope">
                                         </i>
+                                        @error('email')<small class="text-danger">{{ $message }}</small>@enderror
                                     </div>
                                     <div class="form-group col-12">
-                                        <select name="subject" id="subject" class="form-select">
-                                            <option value="" disabled="disabled" selected="selected" hidden>Choose
+                                        <select name="service" id="service" class="form-select" required>
+                                            <option value="" disabled="disabled" @selected(!old('service')) hidden>Choose
                                                 Service</option>
-                                            @foreach ($services as $service)
-                                                <option value="{{ $service->title }}">{{ $service->title }}</option>
+                                            @foreach ($quoteServices ?? $services as $service)
+                                                <option value="{{ $service->title }}" @selected(old('service') === $service->title)>{{ $service->title }}</option>
                                             @endforeach
-                                        </select> <i class="fal fa-chevron-down">
+                                        </select> <i class="fas fa-angle-down">
                                         </i>
+                                        @error('service')<small class="text-danger">{{ $message }}</small>@enderror
                                     </div>
                                     <div class="form-group col-12">
-                                        <input type="text" class="form-control" name="location" id="location"
-                                            placeholder="Location"> <i class="fal fa-location-dot">
+                                        <input type="text" class="form-control" name="postcode" id="postcode"
+                                            value="{{ old('postcode') }}" placeholder="Location"> <i class="fal fa-location-dot">
                                         </i>
+                                        @error('postcode')<small class="text-danger">{{ $message }}</small>@enderror
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <textarea class="form-control" name="message" id="message" rows="3"
+                                            placeholder="Describe what needs cleaning">{{ old('message') }}</textarea>
+                                        @error('message')<small class="text-danger">{{ $message }}</small>@enderror
                                     </div>
                                     <div class="form-btn col-12">
-                                        <button class="th-btn btn-fw">Submit<i class="fas fa-arrow-up-right ms-2">
+                                        <button class="th-btn btn-fw" type="submit">Get Quote<i class="fas fa-arrow-up-right ms-2">
                                             </i>
                                         </button>
                                     </div>
                                 </div>
-                                <p class="form-messages mb-0 mt-3">
-                                </p>
                             </div>
                         </form>
                     </div>
@@ -349,7 +369,7 @@
             </div>
         </div>
     </div>
-    <section class="space">
+    {{-- <section class="space">
         <div class="shape-mockup jump d-none d-xl-block" data-top="0%" data-left="0%">
             <img src="{{ asset('frontend/assets/img/shape/tool_shape_2.png') }}" alt="shape">
         </div>
@@ -624,21 +644,23 @@
                 </div>
             </div>
         </div>
-    </section>
-    <div class="overflow-hidden space" data-bg-src="{{ asset('frontend/assets/img/bg/why_bg_1.jpg') }}">
+    </section> --}}
+    <div class="overflow-hidden space cw-why-section" style="margin-top: 110px !Important;">
+        <span class="cw-why-glow cw-why-glow-1" aria-hidden="true"></span>
+        <span class="cw-why-glow cw-why-glow-2" aria-hidden="true"></span>
+        <span class="cw-why-wave" aria-hidden="true"></span>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-6 text-center text-xl-start">
                     <div class="title-area mb-32">
                         <span class="sub-title2">
                             <img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="shape">Why
-                            Choose us</span>
-                        <h2 class="sec-title">Empowering Your <span class="text-theme">Business</span> with Our Expertise
+                            Choose Crestwell</span>
+                        <h2 class="sec-title">Professional <span class="text-theme">Cleaning</span> Support You Can Trust
                         </h2>
-                        <p class="sec-text">With a rich history of transforming businesses into success stories, our
-                            expertise is your competitive advantage. We excel in leveraging cutting-edge as strategies and
-                            industry insights to make your business shine, positioning you for sustained growth and
-                            prosperity in the market</p>
+                        <p class="sec-text">Crestwell Facilities supports commercial properties, shared spaces, and managed
+                            premises with vetted cleaners, insured service standards, and clear communication from first
+                            quote to final quality check.</p>
                     </div>
                     <div class="about-feature4-area">
                         <div class="about-feature2">
@@ -646,8 +668,8 @@
                                 <img src="{{ asset('frontend/assets/img/icon/about_feature_3.svg') }}" alt="icon">
                             </div>
                             <div class="media-body">
-                                <h3 class="box-title">Expert Team</h3>
-                                <p class="box-text">Our expert team drives success through knowledge, dedication.</p>
+                                <h3 class="box-title">Vetted Cleaning Teams</h3>
+                                <p class="box-text">Trained, reliable cleaners who arrive prepared and respect your site.</p>
                             </div>
                         </div>
                         <div class="about-feature2">
@@ -655,8 +677,8 @@
                                 <img src="{{ asset('frontend/assets/img/icon/about_feature_4.svg') }}" alt="icon">
                             </div>
                             <div class="media-body">
-                                <h3 class="box-title">Trancparent Price</h3>
-                                <p class="box-text">Our expert team drives success through knowledge, dedication.</p>
+                                <h3 class="box-title">Transparent Pricing</h3>
+                                <p class="box-text">Clear quotes matched to your property, schedule, and cleaning needs.</p>
                             </div>
                         </div>
                         <div class="about-feature2">
@@ -664,8 +686,8 @@
                                 <img src="{{ asset('frontend/assets/img/icon/about_feature_5.svg') }}" alt="icon">
                             </div>
                             <div class="media-body">
-                                <h3 class="box-title">Affordable Service</h3>
-                                <p class="box-text">Our expert team drives success through knowledge, dedication.</p>
+                                <h3 class="box-title">Flexible Support</h3>
+                                <p class="box-text">One-off deep cleans, regular contracts, and facilities support that scales.</p>
                             </div>
                         </div>
                     </div>
@@ -673,10 +695,12 @@
                 <div class="col-xl-6">
                     <div class="img-box4">
                         <div class="img1">
-                            <img src="{{ asset('frontend/assets/img/normal/why_1_1.jpg') }}" alt="Why">
+                            <img src="{{ asset('frontend/assets/img/normal/why_1_1.jpg') }}"
+                                alt="Commercial floor cleaning equipment">
                         </div>
                         <div class="img2">
-                            <img src="{{ asset('frontend/assets/img/normal/why_1_2.jpg') }}" alt="Why">
+                            <img src="{{ asset('frontend/assets/img/normal/why_1_2.jpg') }}"
+                                alt="Cleaner preparing a workspace">
                         </div>
                     </div>
                 </div>

@@ -14444,6 +14444,76 @@ span.select2-selection.select2-selection--single:focus {
     background-color: var(--white-color);
     border: 1px solid var(--th-border-color);
 }
+.cw-home-quote-form {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 18px 42px rgba(0, 21, 36, 0.18);
+}
+.cw-home-quote-form .form-title {
+    border-radius: 6px 6px 0 0;
+    padding: 16px 18px;
+}
+.cw-home-quote-form .row {
+    --bs-gutter-x: 14px;
+}
+.cw-home-quote-form .input-wrap {
+    padding: 24px;
+}
+.cw-home-quote-form .form-control,
+.cw-home-quote-form .form-select {
+    min-height: 56px;
+    border-radius: 7px;
+    border-color: #d7e0ea;
+    color: #001524;
+    font-weight: 600;
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.cw-home-quote-form .form-select {
+    padding-right: 52px;
+    background-image: none;
+}
+.cw-home-quote-form textarea.form-control {
+    min-height: 104px;
+    resize: vertical;
+    line-height: 1.5;
+}
+.cw-home-quote-form .form-control::placeholder {
+    color: #6f7c91;
+    opacity: 1;
+}
+.cw-home-quote-form .form-control:focus,
+.cw-home-quote-form .form-select:focus {
+    border-color: var(--theme-color);
+    background-color: #fbfdff;
+    box-shadow: 0 0 0 4px rgba(6, 143, 255, 0.12);
+}
+.cw-home-quote-form .form-group > i {
+    right: 18px;
+    width: 24px;
+    text-align: center;
+    pointer-events: none;
+}
+.cw-home-quote-form .form-group > i.fa-angle-down {
+    top: 20px;
+    background-color: transparent;
+    color: var(--theme-color);
+    font-size: 16px;
+    line-height: 1;
+}
+.cw-home-quote-form .th-btn {
+    border-radius: 7px;
+}
+@media (min-width: 576px) {
+    .cw-home-quote-form .input-wrap {
+        padding: 32px;
+    }
+}
+@media (min-width: 1200px) {
+    .cw-home-quote-form .input-wrap {
+        padding: 40px;
+    }
+}
 @media (max-width: 1199px) {
     .contact-area2 {
         padding-bottom: 0px !important;

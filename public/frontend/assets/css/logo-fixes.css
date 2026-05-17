@@ -77,6 +77,41 @@
     font-size: 18px;
 }
 
+.cw-section-quote-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.cw-section-quote-actions .cw-navbar-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: max-content;
+    border-radius: 999px;
+    background: #25d366;
+    color: #ffffff;
+    font-family: var(--title-font);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    padding: 15px 22px;
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.cw-section-quote-actions .cw-navbar-whatsapp:hover {
+    background: #1fb85a;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(37, 211, 102, 0.32);
+}
+
+.cw-section-quote-actions .cw-navbar-whatsapp i {
+    font-size: 18px;
+}
+
 .hero-style4 .cw-hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -141,6 +176,16 @@
 }
 
 .hero-style4 .cw-hero-call:hover i {
+    color: var(--title-color);
+}
+
+.cw-section-quote-actions .cw-hero-call {
+    background-color: #ffffff;
+    color: var(--title-color);
+}
+
+.cw-section-quote-actions .cw-hero-call:hover,
+.cw-section-quote-actions .cw-hero-call:hover i {
     color: var(--title-color);
 }
 
