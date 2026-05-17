@@ -10,7 +10,7 @@
     </div>
 </section>
 
-<section class="space">
+<section class="space cw-services-page">
     <div class="container">
         <div class="title-area text-center">
             <span class="sub-title2"><img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="Icon">Service Infrastructure</span>
@@ -24,8 +24,10 @@
                         <div class="box-content">
                             <span class="cw-service-card-icon"><i class="{{ $service->iconClass }}"></i></span>
                             <h3 class="box-title"><a href="{{ route('frontend.services.show', $service->slug) }}">{{ $service->title }}</a></h3>
-                            <p class="box-text">{{ $service->excerpt }}</p>
-                            <a href="{{ route('frontend.services.show', $service->slug) }}" class="link-btn">Explore Service<i class="fas fa-arrow-up-right ms-2"></i></a>
+                            <div class="cw-service-card-footer">
+                                <span>{{ $service->excerpt }}</span>
+                                <a href="{{ route('frontend.services.show', $service->slug) }}" aria-label="Explore {{ $service->title }}"><i class="fas fa-arrow-up-right"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>

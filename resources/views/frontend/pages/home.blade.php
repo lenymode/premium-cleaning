@@ -29,29 +29,15 @@
     </div>
 </section>
 
-<section class="space cw-trust-band">
-    <div class="container">
-        <div class="row gy-4 align-items-center">
-            <div class="col-lg-5">
-                <span class="cw-section-label">Trust & delivery</span>
-                <h2 class="sec-title text-white">A dependable cleaning partner for professional spaces</h2>
-                <p class="cw-light-text">Crestwell Facilities is structured for clients who need clear communication, consistent standards and the ability to scale from one-off work into recurring cleaning support.</p>
-            </div>
-            <div class="col-lg-7">
-                <div class="row gy-3">
-                    @foreach($trustPoints as $point)
-                        <div class="col-sm-6">
-                            <div class="cw-trust-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>{{ $point }}</span>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+@include('frontend.partials.about-company', [
+    'subtitle' => 'Trust & delivery',
+    'title' => 'A dependable cleaning partner for professional spaces',
+    'text' => 'Crestwell Facilities is structured for clients who need clear communication, consistent standards and the ability to scale from one-off work into recurring cleaning support.',
+    'years' => '10',
+    'buttonUrl' => route('frontend.contact'),
+    'buttonText' => 'Get Free Quote',
+    'features' => $trustPoints,
+])
 
 <section class="space" id="service-sec">
     <div class="container">
@@ -77,10 +63,14 @@
                     <div class="swiper-slide">
                         <div class="service-box">
                             <div class="box-img"><img src="{{ asset('frontend/assets/img/'.$service->image) }}" alt="{{ $service->title }}"></div>
-                            <span class="cw-service-card-icon"><i class="{{ $service->iconClass }}"></i></span>
-                            <h3 class="box-title"><a href="{{ route('frontend.services.show', $service->slug) }}">{{ $service->title }}</a></h3>
-                            <p class="box-text">{{ $service->excerpt }}</p>
-                            <a href="{{ route('frontend.services.show', $service->slug) }}" class="th-btn star-btn2 style2">Explore Service<i class="fas fa-arrow-up-right ms-2"></i></a>
+                            <div class="box-content">
+                                <span class="cw-service-card-icon"><i class="{{ $service->iconClass }}"></i></span>
+                                <h3 class="box-title"><a href="{{ route('frontend.services.show', $service->slug) }}">{{ $service->title }}</a></h3>
+                                <div class="cw-service-card-footer">
+                                    <span>{{ $service->excerpt }}</span>
+                                    <a href="{{ route('frontend.services.show', $service->slug) }}" aria-label="Explore {{ $service->title }}"><i class="fas fa-arrow-up-right"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 @endforeach
