@@ -77,8 +77,7 @@
             <div class="row justify-content-lg-between justify-content-center align-items-end">
                 <div class="col-lg">
                     <div class="title-area text-center text-lg-start">
-                        <span class="sub-title2">
-                            <img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="shape">Our
+                        <span class="sub-title2">Our
                             Services</span>
                         <h2 class="sec-title">Commercial Cleaning & <span class="text-theme">Facilities</span>
                             <br>Services
