@@ -82,20 +82,25 @@
     </div>
 </section>
 
-<section class="space bg-smoke">
+<section class="space overflow-hidden cw-work-process">
+    <div class="shape-mockup spin d-none d-lg-block" data-top="11%" data-left="-200px">
+        <img src="{{ asset('frontend/assets/img/shape/vector_shape_8.png') }}" alt="shape">
+    </div>
     <div class="container">
         <div class="title-area text-center">
             <span class="sub-title2"><img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="Icon">How It Works</span>
             <h2 class="sec-title">Simple enquiry, clear scope, reliable delivery</h2>
         </div>
-        <div class="row gy-4">
+        <div class="process-card2-wrap cw-process-card-wrap">
             @foreach($processSteps as $index => $step)
-                <div class="col-md-6 col-xl-3">
-                    <div class="cw-process-card">
-                        <span>{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
-                        <h3>{{ $step['title'] }}</h3>
-                        <p>{{ $step['text'] }}</p>
+                @php($processImage = ['normal/process_card_1.jpg', 'normal/process_card_2.jpg', 'normal/process_card_3.jpg', 'normal/about_2_2.jpg'][$index % 4])
+                <div class="process-card2 cw-process-card2">
+                    <div class="box-img">
+                        <img src="{{ asset('frontend/assets/img/'.$processImage) }}" alt="{{ $step['title'] }}">
                     </div>
+                    <span class="cw-process-count">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
+                    <h3 class="box-title">{{ $step['title'] }}</h3>
+                    <p class="box-text">{{ $step['text'] }}</p>
                 </div>
             @endforeach
         </div>
