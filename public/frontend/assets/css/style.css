@@ -24845,3 +24845,66 @@ span.select2-selection.select2-selection--single:focus {
         left: 50px;
     }
 }
+
+.service-rich-content {
+    color: var(--body-color);
+    line-height: 1.8;
+}
+.service-rich-content > * + * {
+    margin-top: 16px;
+}
+.service-rich-content h2,
+.service-rich-content h3 {
+    margin-bottom: 8px;
+    line-height: 1.25;
+}
+.service-rich-content ul,
+.service-rich-content ol {
+    margin-bottom: 0;
+    padding-left: 22px;
+}
+.service-rich-content ul {
+    list-style: disc;
+}
+.service-rich-content ol {
+    list-style: decimal;
+}
+.service-rich-content blockquote {
+    margin: 0;
+    border-left: 4px solid var(--theme-color);
+    padding-left: 18px;
+    color: var(--title-color);
+    font-weight: 600;
+}
+.service-rich-content pre {
+    overflow-x: auto;
+    border-radius: 8px;
+    background: #f4f7fb;
+    padding: 14px;
+    white-space: pre-wrap;
+}
+.service-rich-content .ql-align-center {
+    text-align: center;
+}
+.service-rich-content .ql-align-right {
+    text-align: right;
+}
+.service-rich-content .ql-align-justify {
+    text-align: justify;
+}
+.service-rich-content .ql-indent-1 {
+    margin-left: 24px;
+}
+.service-rich-content .ql-indent-2 {
+    margin-left: 48px;
+}
+.service-rich-content .ql-indent-3 {
+    margin-left: 72px;
+}
+@media (max-width: 575px) {
+    .service-rich-content .ql-indent-1,
+    .service-rich-content .ql-indent-2,
+    .service-rich-content .ql-indent-3 {
+        margin-left: 18px;
+    }
+}

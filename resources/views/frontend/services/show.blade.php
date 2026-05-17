@@ -17,7 +17,13 @@
                 <img class="rounded-3 mb-4" src="{{ asset('frontend/assets/img/'.$service->image) }}" alt="{{ $service->title }}">
                 <span class="sub-title2"><img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="Icon">Crestwell Service</span>
                 <h2 class="sec-title">{{ $service->title }} for Clean, Professional Spaces</h2>
-                <p>{{ $service->description }}</p>
+                <div class="service-rich-content">
+                    @if(str_contains($service->description, '<'))
+                        {!! $service->description !!}
+                    @else
+                        <p>{{ $service->description }}</p>
+                    @endif
+                </div>
                 <h3>Benefits</h3>
                 <ul class="checklist">
                     @foreach($service->benefits as $benefit)

@@ -10,7 +10,13 @@
         <span class="inline-flex rounded-full px-3 py-1 text-xs font-bold {{ $service->is_active ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-500' }}">{{ $service->is_active ? 'Active' : 'Draft' }}</span>
         <h2 class="mt-4 text-3xl font-black">{{ $service->title }}</h2>
         <p class="mt-3 text-lg text-slate-600">{{ $service->excerpt }}</p>
-        <div class="mt-6 whitespace-pre-line rounded-3xl bg-slate-50 p-5 text-slate-700">{{ $service->description }}</div>
+        <div class="admin-rich-text-content mt-6 rounded-3xl bg-slate-50 p-5 text-slate-700">
+            @if(str_contains($service->description, '<'))
+                {!! $service->description !!}
+            @else
+                <p>{{ $service->description }}</p>
+            @endif
+        </div>
         @if($service->benefits)
             <h3 class="mt-6 font-black">Benefits</h3>
             <ul class="mt-3 grid gap-2 md:grid-cols-2">

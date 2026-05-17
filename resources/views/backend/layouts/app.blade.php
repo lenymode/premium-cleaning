@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? 'Admin' }} | {{ config('site.name') }}</title>
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/fontawesome.min.css') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-slate-100 text-slate-950 antialiased">
+<body class="bg-slate-100 text-slate-950 antialiased" data-admin-validation>
 @php
     $user = auth()->user();
     $navItems = [

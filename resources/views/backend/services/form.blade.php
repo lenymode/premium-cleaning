@@ -22,32 +22,32 @@
                 <div class="md:col-span-2">
                     <label class="text-sm font-bold text-slate-700" for="title">Title</label>
                     <input id="title" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('title') border-red-400 @enderror" name="title" value="{{ old('title', $service->title) }}" required maxlength="160" placeholder="Office Cleaning">
-                    @error('title')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                    @error('title')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
                 </div>
 
                 <div>
                     <label class="text-sm font-bold text-slate-700" for="slug">Slug</label>
                     <input id="slug" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('slug') border-red-400 @enderror" name="slug" value="{{ old('slug', $service->slug) }}" maxlength="180" placeholder="auto-generated if blank">
-                    @error('slug')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                    @error('slug')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
                 </div>
 
                 <div>
                     <label class="text-sm font-bold text-slate-700" for="sort_order">Display order</label>
                     <input id="sort_order" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('sort_order') border-red-400 @enderror" type="number" min="0" max="9999" name="sort_order" value="{{ old('sort_order', $service->sort_order ?? 0) }}">
-                    @error('sort_order')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                    @error('sort_order')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="md:col-span-2">
                     <label class="text-sm font-bold text-slate-700" for="excerpt">Excerpt</label>
                     <textarea id="excerpt" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('excerpt') border-red-400 @enderror" rows="3" name="excerpt" required maxlength="500" placeholder="Short text used on service cards">{{ old('excerpt', $service->excerpt) }}</textarea>
                     <p class="mt-2 text-xs font-medium text-slate-500">Keep this under 2-3 lines for the frontend service carousel.</p>
-                    @error('excerpt')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                    @error('excerpt')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
                 </div>
 
                 <div class="md:col-span-2">
                     <label class="text-sm font-bold text-slate-700" for="description">Description</label>
-                    <textarea id="description" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('description') border-red-400 @enderror" rows="8" name="description" required placeholder="Full service page content">{{ old('description', $service->description) }}</textarea>
-                    @error('description')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                    <textarea id="description" data-rich-text data-label="Description" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('description') border-red-400 @enderror" rows="8" name="description" required placeholder="Full service page content">{{ old('description', $service->description) }}</textarea>
+                    @error('description')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
                 </div>
             </div>
         </section>
@@ -65,7 +65,7 @@
                             <input class="w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500" name="benefits[]" value="{{ $benefits[$i] ?? '' }}" maxlength="180" placeholder="Benefit {{ $i + 1 }}">
                         @endfor
                     </div>
-                    @error('benefits.*')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                    @error('benefits.*')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
                 </div>
                 <div>
                     <label class="text-sm font-bold text-slate-700">FAQs</label>
@@ -90,12 +90,12 @@
                 <div>
                     <label class="text-sm font-bold text-slate-700" for="meta_title">Meta title</label>
                     <input id="meta_title" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('meta_title') border-red-400 @enderror" name="meta_title" value="{{ old('meta_title', $service->meta_title) }}" maxlength="180">
-                    @error('meta_title')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                    @error('meta_title')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
                 </div>
                 <div>
                     <label class="text-sm font-bold text-slate-700" for="meta_description">Meta description</label>
                     <input id="meta_description" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('meta_description') border-red-400 @enderror" name="meta_description" value="{{ old('meta_description', $service->meta_description) }}" maxlength="255">
-                    @error('meta_description')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                    @error('meta_description')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
                 </div>
             </div>
         </section>
@@ -123,7 +123,7 @@
             <h2 class="text-xl font-black">Service icon</h2>
             <p class="mt-1 text-sm text-slate-500">Use Font Awesome 6 Pro classes. Recommended style: solid icons, 18-22px on frontend.</p>
             <div class="mt-4 flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
-                <span class="grid h-14 w-14 place-items-center rounded-2xl bg-blue-600 text-xl text-white">
+                <span class="grid shrink-0 basis-14 place-items-center rounded-2xl bg-blue-600 text-xl text-white" style="width: 3.5rem; height: 3.5rem;">
                     <i :class="iconClass"></i>
                 </span>
                 <div class="min-w-0">
@@ -133,7 +133,7 @@
             </div>
             <label class="mt-4 block text-sm font-bold text-slate-700" for="icon_class">Icon class</label>
             <input id="icon_class" x-model="iconClass" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 text-sm focus:border-blue-500 focus:ring-blue-500 @error('icon_class') border-red-400 @enderror" name="icon_class" value="{{ old('icon_class', $service->icon_class) }}" maxlength="80" placeholder="fa-solid fa-broom">
-            @error('icon_class')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+            @error('icon_class')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
             <div class="mt-4 flex flex-wrap gap-2">
                 @foreach(['fa-solid fa-building', 'fa-solid fa-broom', 'fa-solid fa-spray-can-sparkles', 'fa-solid fa-house-chimney', 'fa-solid fa-soap', 'fa-solid fa-briefcase', 'fa-solid fa-hand-sparkles', 'fa-solid fa-warehouse'] as $iconOption)
                     <button type="button" class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white text-blue-700 transition hover:border-blue-300 hover:bg-blue-50" @click="iconClass = '{{ $iconOption }}'" title="{{ $iconOption }}">
@@ -154,7 +154,7 @@
             </div>
             <input type="hidden" name="image" value="{{ old('image', $service->image) }}">
             <input class="mt-4 block w-full rounded-2xl border border-slate-200 bg-white p-2 text-sm file:mr-4 file:rounded-xl file:border-0 file:bg-blue-50 file:px-4 file:py-2 file:text-sm file:font-bold file:text-blue-700" type="file" name="image_file" accept="image/png,image/jpeg,image/webp" @change="preview = $event.target.files[0] ? URL.createObjectURL($event.target.files[0]) : preview">
-            @error('image_file')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+            @error('image_file')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
             @if($service->image)
                 <label class="mt-4 flex items-center gap-2 text-sm font-bold text-red-600">
                     <input type="checkbox" name="remove_image" value="1" class="rounded border-slate-300 text-red-600 focus:ring-red-500">
