@@ -759,6 +759,7 @@
                 <div class="col-xl-5">
                     <div class="cw-area-panel cw-home-area-copy h-100">
                         <div class="cw-area-intro">
+                            <span class="sub-title2">Coverage Zones</span>
                             <h2>Cleaning Coverage Built Around Commercial Demand</h2>
                             <p>Crestwell Facilities supports offices, managed properties, serviced accommodation, communal
                                 areas and specialist cleaning requirements across core local coverage zones.</p>

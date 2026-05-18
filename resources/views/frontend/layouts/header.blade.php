@@ -1,5 +1,16 @@
 @php
     $navigationServices = app(\App\Services\Frontend\ServicePageService::class)->all();
+    $navigationServiceIcons = [
+        'fa-solid fa-building',
+        'fa-solid fa-briefcase',
+        'fa-solid fa-key',
+        'fa-solid fa-bed',
+        'fa-solid fa-sparkles',
+        'fa-solid fa-screwdriver-wrench',
+        'fa-solid fa-droplet',
+        'fa-solid fa-triangle-exclamation',
+        'fa-solid fa-house-chimney',
+    ];
 @endphp
 <div class="sidemenu-wrapper sidemenu-cart d-none d-lg-block">
     <div class="sidemenu-content">
@@ -104,52 +115,8 @@
         </div>
         <div class="th-mobile-menu">
             <ul>
-                <li class="menu-item-has-children">
+                <li>
                     <a href="{{ route('frontend.home') }}">Home</a>
-                    <ul class="sub-menu">
-                        <li class="menu-item-has-children">
-                            <a href="#">Multipage</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="{{ route('frontend.home') }}">Home (Cleaning Service)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Home (House Cleaning)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Home (Commercial Cleaning Service)</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Onepage</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="#">Home (Cleaning Service)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Home (House Cleaning)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Home (Commercial Cleaning Service)</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">RTL</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="#">Home (Cleaning Service)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Home (House Cleaning)</a>
-                                </li>
-                                <li>
-                                    <a href="#">Home (Commercial Cleaning Service)</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="{{ route('frontend.about') }}">About Us</a>
@@ -318,158 +285,40 @@
                     <div class="col-auto d-none d-lg-inline-block">
                         <nav class="main-menu d-none d-lg-inline-block">
                             <ul>
-                                <li class="menu-item-has-children">
+                                <li>
                                     <a href="{{ route('frontend.home') }}">Home</a>
-                                    <ul class="mega-menu mega-menu-content allow-natural-scroll">
-                                        <li>
-                                            <div class="container">
-                                                <div class="row gy-4">
-                                                    <div class="col-lg-4">
-                                                        <div class="mega-menu-box">
-                                                            <div class="mega-menu-img">
-                                                                <img src="{{ asset('frontend/assets/img/pages/index.jpg') }}"
-                                                                    alt="Home One">
-                                                                <div class="btn-wrap">
-                                                                    <a href="{{ route('frontend.home') }}"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Multipage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Onepage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">RTL</a>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="mega-menu-title">
-                                                                <a href="{{ route('frontend.home') }}">
-                                                                    <span class="text-theme">01.</span> Home (Cleaning
-                                                                    Service)</a>
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="mega-menu-box">
-                                                            <div class="mega-menu-img">
-                                                                <img src="{{ asset('frontend/assets/img/pages/home-2.jpg') }}"
-                                                                    alt="Home Two">
-                                                                <div class="btn-wrap">
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Multipage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Onepage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">RTL</a>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="mega-menu-title">
-                                                                <a href="#">
-                                                                    <span class="text-theme">02.</span> Home (House
-                                                                    Cleaning)</a>
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="mega-menu-box">
-                                                            <div class="mega-menu-img">
-                                                                <img src="{{ asset('frontend/assets/img/pages/home-3.jpg') }}"
-                                                                    alt="Home Three">
-                                                                <div class="btn-wrap">
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Multipage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Onepage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">RTL</a>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="mega-menu-title">
-                                                                <a href="#">
-                                                                    <span class="text-theme">03.</span> Home
-                                                                    (Commercial Cleaning Service)</a>
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="mega-menu-box">
-                                                            <div class="mega-menu-img">
-                                                                <img src="{{ asset('frontend/assets/img/pages/home-4.jpg') }}"
-                                                                    alt="Home Three">
-                                                                <div class="btn-wrap">
-                                                                    <a href="{{ route('frontend.home') }}"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Multipage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Onepage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">RTL</a>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="mega-menu-title">
-                                                                <a href="{{ route('frontend.home') }}">
-                                                                    <span class="text-theme">04.</span> House
-                                                                    Cleaner</a>
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="mega-menu-box">
-                                                            <div class="mega-menu-img">
-                                                                <img src="{{ asset('frontend/assets/img/pages/home-5.jpg') }}"
-                                                                    alt="Home Three">
-                                                                <div class="btn-wrap">
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Multipage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Onepage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">RTL</a>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="mega-menu-title">
-                                                                <a href="#">
-                                                                    <span class="text-theme">05.</span>Cleaning
-                                                                    Service</a>
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="mega-menu-box">
-                                                            <div class="mega-menu-img">
-                                                                <img src="{{ asset('frontend/assets/img/pages/home-6.jpg') }}"
-                                                                    alt="Home six">
-                                                                <div class="btn-wrap">
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Multipage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">Onepage</a>
-                                                                    <a href="#"
-                                                                        class="th-btn star-btn bg-theme2 text-title shadow-none">RTL</a>
-                                                                </div>
-                                                            </div>
-                                                            <h3 class="mega-menu-title">
-                                                                <a href="#">
-                                                                    <span class="text-theme">06.</span>Commercial Space
-                                                                    Cleaning</a>
-                                                            </h3>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li>
                                     <a href="{{ route('frontend.about') }}">About Us</a>
                                 </li>
-                                <li class="menu-item-has-children">
+                                <li class="menu-item-has-children cw-services-nav-item">
                                     <a href="#">Services</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="{{ route('frontend.services.index') }}">All Services</a>
-                                        </li>
+                                    <ul class="sub-menu cw-service-mega-menu">
                                         @foreach ($navigationServices as $service)
                                             <li>
-                                                <a
-                                                    href="{{ route('frontend.services.show', $service->slug) }}">{{ $service->title }}</a>
+                                                <a href="{{ route('frontend.services.show', $service->slug) }}"
+                                                    class="cw-mega-link">
+                                                    <span class="cw-mega-icon" aria-hidden="true">
+                                                        <i
+                                                            class="{{ $navigationServiceIcons[$loop->index % count($navigationServiceIcons)] }}"></i>
+                                                    </span>
+                                                    <span>
+                                                        <span class="cw-mega-title">{{ $service->title }}</span>
+                                                        <span
+                                                            class="cw-mega-text">{{ $service->excerpt ?: 'Professional cleaning support for your space' }}</span>
+                                                    </span>
+                                                    <span class="cw-mega-arrow" aria-hidden="true">
+                                                        <i class="fa-solid fa-arrow-right"></i>
+                                                    </span>
+                                                </a>
                                             </li>
                                         @endforeach
+                                        <li class="cw-mega-all-services">
+                                            <a href="{{ route('frontend.services.index') }}" class="cw-mega-view-all">
+                                                <span>View all services</span>
+                                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 {{-- <li class="menu-item-has-children">
