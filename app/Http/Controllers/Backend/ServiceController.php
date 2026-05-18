@@ -13,6 +13,8 @@ class ServiceController extends Controller
 {
     public function index()
     {
+        $perPage = $this->tablePerPage();
+
         $query = Service::query()
             ->when(request('q'), fn ($query, $search) => $query->where(function ($query) use ($search) {
                 $query->where('title', 'like', "%{$search}%")
@@ -24,7 +26,7 @@ class ServiceController extends Controller
             ->latest();
 
         return view('backend.services.index', [
-            'services' => $query->paginate(12)->withQueryString(),
+            'services' => $query->paginate($perPage)->withQueryString(),
         ]);
     }
 

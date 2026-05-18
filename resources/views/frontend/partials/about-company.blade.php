@@ -1,6 +1,7 @@
 @php
     $aboutTitle = $title ?? 'Our Promise Is To Deliver Reliable Facilities Services';
     $aboutText = $text ?? 'Crestwell Facilities provides premium cleaning and facilities support for businesses, managed properties and residential spaces. We focus on consistency, professionalism and service delivery that protects how your spaces look, feel and perform.';
+    $aboutSubtitle = $subtitle ?? 'About Company';
     $experienceYears = $years ?? '10';
     $buttonUrl = $buttonUrl ?? route('frontend.about');
     $buttonText = $buttonText ?? 'Discover More';
@@ -40,7 +41,7 @@
             <div class="col-xl-7 text-xl-start text-center">
                 <div class="title-area mb-32">
                     <span class="sub-title2">
-                        <img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="shape">About Company
+                        <img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="shape">{{ $aboutSubtitle }}
                     </span>
                     <h2 class="sec-title">{!! $aboutTitle !!}</h2>
                     <p class="sec-text">{{ $aboutText }}</p>
@@ -52,7 +53,7 @@
                         @endforeach
                     </ul>
                 </div>
-                <a href="{{ $buttonUrl }}" class="th-btn star-btn">{{ $buttonText }}<i class="fas fa-arrow-up-right ms-2"></i></a>
+                {{-- <a href="{{ $buttonUrl }}" class="th-btn star-btn">{{ $buttonText }}<i class="fas fa-arrow-up-right ms-2"></i></a> --}}
             </div>
         </div>
     </div>

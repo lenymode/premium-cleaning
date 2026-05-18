@@ -15,7 +15,7 @@ class QuoteRequestController extends Controller
             name: $request->string('name')->toString(),
             company: $request->input('company'),
             email: $request->string('email')->toString(),
-            phone: $request->string('phone')->toString(),
+            phone: $request->filled('phone') ? $request->string('phone')->toString() : 'Not provided',
             service: $request->string('service')->toString(),
             propertyType: $request->input('property_type'),
             postcode: $request->input('postcode'),

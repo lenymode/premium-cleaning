@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\CompanyInformationController;
 use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\QuoteRequestController;
@@ -16,6 +17,8 @@ Route::middleware(['auth', 'verified'])
         Route::get('/settings', [ProfileController::class, 'edit'])->name('settings.edit');
         Route::patch('/settings/profile', [ProfileController::class, 'update'])->name('settings.update');
         Route::put('/settings/password', [ProfileController::class, 'password'])->name('settings.password');
+        Route::get('/settings/company-information', [CompanyInformationController::class, 'edit'])->name('settings.company-information.edit');
+        Route::patch('/settings/company-information', [CompanyInformationController::class, 'update'])->name('settings.company-information.update');
         Route::resource('services', ServiceController::class);
         Route::resource('testimonials', TestimonialController::class);
         Route::resource('locations', LocationController::class);

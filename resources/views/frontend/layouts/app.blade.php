@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/jquery.datetimepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/crestwell.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/logo-fixes.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/crestwell.css') }}?v={{ filemtime(public_path('frontend/assets/css/crestwell.css')) }}">
     <script type="application/ld+json">
         {
             "@@context": "https://schema.org",

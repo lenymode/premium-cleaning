@@ -12,27 +12,27 @@
             <div>
                 <label class="text-sm font-bold text-slate-700" for="name">Name</label>
                 <input id="name" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('name') border-red-400 @enderror" name="name" value="{{ old('name', $location->name) }}" required maxlength="140" placeholder="Central Business Districts">
-                @error('name')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                @error('name')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
             </div>
             <div>
                 <label class="text-sm font-bold text-slate-700" for="slug">Slug</label>
                 <input id="slug" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('slug') border-red-400 @enderror" name="slug" value="{{ old('slug', $location->slug) }}" maxlength="160" placeholder="auto-generated if blank">
-                @error('slug')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                @error('slug')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
             </div>
             <div>
                 <label class="text-sm font-bold text-slate-700" for="county">County</label>
                 <input id="county" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('county') border-red-400 @enderror" name="county" value="{{ old('county', $location->county) }}" maxlength="120" placeholder="Greater London">
-                @error('county')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                @error('county')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
             </div>
             <div>
                 <label class="text-sm font-bold text-slate-700" for="postcode_area">Postcode area</label>
                 <input id="postcode_area" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('postcode_area') border-red-400 @enderror" name="postcode_area" value="{{ old('postcode_area', $location->postcode_area) }}" maxlength="30" placeholder="EC, WC, SE">
-                @error('postcode_area')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                @error('postcode_area')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
             </div>
             <div>
                 <label class="text-sm font-bold text-slate-700" for="sort_order">Display order</label>
                 <input id="sort_order" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('sort_order') border-red-400 @enderror" type="number" min="0" max="9999" name="sort_order" value="{{ old('sort_order', $location->sort_order ?? 0) }}">
-                @error('sort_order')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                @error('sort_order')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
             </div>
             <div class="flex items-end">
                 <label class="flex w-full items-center justify-between rounded-2xl bg-slate-50 p-4">
@@ -47,7 +47,7 @@
             <div class="md:col-span-2">
                 <label class="text-sm font-bold text-slate-700" for="description">Description</label>
                 <textarea id="description" class="mt-2 w-full rounded-2xl border-slate-200 bg-slate-50 px-4 py-3 focus:border-blue-500 focus:ring-blue-500 @error('description') border-red-400 @enderror" rows="7" name="description" maxlength="1000" placeholder="Explain what you cover in this area">{{ old('description', $location->description) }}</textarea>
-                @error('description')<p class="mt-2 text-sm font-semibold text-red-600">{{ $message }}</p>@enderror
+                @error('description')<p class="mt-2 text-xs font-semibold text-red-600">{{ $message }}</p>@enderror
             </div>
         </div>
     </section>

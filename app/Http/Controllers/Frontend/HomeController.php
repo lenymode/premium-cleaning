@@ -17,7 +17,8 @@ class HomeController extends Controller
     public function index()
     {
         return view('frontend.pages.home', [
-            'services' => $this->services->featured(),
+            'services' => $this->services->featured(9),
+            'quoteServices' => $this->services->all(),
             'testimonials' => $this->pageData->testimonials(),
             'locations' => $this->pageData->locations(),
             'processSteps' => $this->pageData->processSteps(),

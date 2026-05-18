@@ -12,6 +12,8 @@ class LocationController extends Controller
 {
     public function index()
     {
+        $perPage = $this->tablePerPage();
+
         $query = Location::query()
             ->when(request('q'), fn ($query, $search) => $query->where(function ($query) use ($search) {
                 $query->where('name', 'like', "%{$search}%")
@@ -23,7 +25,7 @@ class LocationController extends Controller
             ->latest();
 
         return view('backend.locations.index', [
-            'locations' => $query->paginate(12)->withQueryString(),
+            'locations' => $query->paginate($perPage)->withQueryString(),
         ]);
     }
 

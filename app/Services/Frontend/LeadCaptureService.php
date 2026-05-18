@@ -3,15 +3,19 @@
 namespace App\Services\Frontend;
 
 use App\Data\QuoteRequestData;
+use App\Mail\QuoteRequestReceived;
 use App\Models\QuoteRequest;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class LeadCaptureService
 {
     public function store(QuoteRequestData $data): ?QuoteRequest
     {
+        $quoteRequest = null;
+
         try {
-            return QuoteRequest::create([
+            $quoteRequest = QuoteRequest::create([
                 'name' => $data->name,
                 'company' => $data->company,
                 'email' => $data->email,
@@ -33,8 +37,17 @@ class LeadCaptureService
                     'service' => $data->service,
                 ],
             ]);
-
-            return null;
         }
+
+        try {
+            Mail::to(config('site.lead_recipient'))->send(new QuoteRequestReceived($data));
+        } catch (\Throwable $exception) {
+            Log::warning('Quote request notification email could not be sent.', [
+                'error' => $exception->getMessage(),
+                'recipient' => config('site.lead_recipient'),
+            ]);
+        }
+
+        return $quoteRequest;
     }
 }

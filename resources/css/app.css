@@ -10,6 +10,129 @@
     width: 18rem;
 }
 
+.admin-sidebar img {
+    object-fit: contain;
+}
+
+.admin-field-error {
+    margin-top: 0.5rem;
+    color: #dc2626;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+}
+
+.admin-field-error:empty,
+.admin-field-error[hidden] {
+    display: none;
+}
+
+[data-admin-validation] input[aria-invalid="true"],
+[data-admin-validation] select[aria-invalid="true"],
+[data-admin-validation] textarea[aria-invalid="true"] {
+    border-color: #f87171;
+}
+
+.admin-rich-text {
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    background: #f8fafc;
+}
+
+.admin-rich-text.is-invalid {
+    border-color: #f87171;
+}
+
+.admin-rich-text .ql-toolbar.ql-snow {
+    border: 0;
+    border-bottom: 1px solid #e2e8f0;
+    background: #ffffff;
+}
+
+.admin-rich-text .ql-container.ql-snow {
+    min-height: 18rem;
+    border: 0;
+    background: #f8fafc;
+    font-size: 1rem;
+}
+
+.admin-rich-text .ql-editor {
+    min-height: 18rem;
+    padding: 1rem;
+    line-height: 1.7;
+}
+
+.admin-rich-text .ql-editor.ql-blank::before {
+    color: #64748b;
+    font-style: normal;
+    left: 1rem;
+    right: 1rem;
+}
+
+.admin-rich-text-content {
+    line-height: 1.8;
+}
+
+.admin-rich-text-content > * + * {
+    margin-top: 1rem;
+}
+
+.admin-rich-text-content ul,
+.admin-rich-text-content ol {
+    padding-left: 1.25rem;
+}
+
+.admin-rich-text-content ul {
+    list-style: disc;
+}
+
+.admin-rich-text-content ol {
+    list-style: decimal;
+}
+
+.admin-rich-text-content blockquote {
+    border-left: 4px solid #2563eb;
+    padding-left: 1rem;
+    color: #475569;
+}
+
+.admin-rich-text-content .ql-align-center {
+    text-align: center;
+}
+
+.admin-rich-text-content .ql-align-right {
+    text-align: right;
+}
+
+.admin-rich-text-content .ql-align-justify {
+    text-align: justify;
+}
+
+.admin-rich-text-content .ql-indent-1 {
+    margin-left: 1.5rem;
+}
+
+.admin-rich-text-content .ql-indent-2 {
+    margin-left: 3rem;
+}
+
+.admin-rich-text-content .ql-indent-3 {
+    margin-left: 4.5rem;
+}
+
+@media (max-width: 640px) {
+    .admin-rich-text .ql-toolbar.ql-snow {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .admin-rich-text .ql-container.ql-snow,
+    .admin-rich-text .ql-editor {
+        min-height: 14rem;
+    }
+}
+
 @media (min-width: 1024px) {
     .admin-sidebar.is-collapsed {
         width: 6rem;
