@@ -152,10 +152,56 @@
             </div>
         </div>
     </section>
-    <div class="z-index-common overflow-hidden space" id="about-sec">
-        <div class="shape-mockup moving d-none d-xl-block z-index-3" data-bottom="-40px" data-right="0">
-            <img src="{{ asset('frontend/assets/img/shape/vector_shape_3.png') }}" alt="shape">
+    <section class="space cw-work-process" id="how-it-works">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10">
+                    <div class="title-area text-center">
+                        <span class="sub-title2">
+                            <img src="{{ asset('frontend/assets/img/theme-img/title_icon.svg') }}" alt="shape">How It
+                            Works</span>
+                        <h2 class="sec-title">A Clear Route from <span class="text-theme">Quote</span> to Quality Checked
+                            Cleaning</h2>
+                        <p class="sec-text mx-auto">Crestwell keeps the journey simple for busy property managers,
+                            businesses, landlords and homeowners: fast enquiry, clear scope, dependable delivery and support
+                            that can scale with your space.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cw-process-flow">
+                @foreach ($processSteps as $step)
+                    <article class="cw-process-step {{ $loop->even ? 'is-below' : 'is-above' }}">
+                        <div class="cw-process-node">
+                            <span class="cw-process-icon" aria-hidden="true">
+                                @if ($loop->iteration === 1)
+                                    <i class="fa-solid fa-clipboard-list"></i>
+                                @elseif ($loop->iteration === 2)
+                                    <i class="fa-solid fa-file-invoice"></i>
+                                @elseif ($loop->iteration === 3)
+                                    <i class="fa-solid fa-spray-can-sparkles"></i>
+                                @else
+                                    <i class="fa-solid fa-headset"></i>
+                                @endif
+                            </span>
+                        </div>
+                        <div class="cw-process-copy">
+                            <h3>{{ $step['title'] }}</h3>
+                            <p>{{ $step['text'] }}</p>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+            <div class="cw-process-cta">
+                <span><i class="fa-solid fa-clock"></i> Fast response for commercial and property enquiries</span>
+                <a href="{{ route('frontend.contact') }}" class="th-btn btn-sm">Start Your Quote<i
+                        class="fas fa-arrow-up-right ms-2"></i></a>
+            </div>
         </div>
+    </section>
+    <div class="z-index-common overflow-hidden space" id="about-sec">
+        {{-- <div class="shape-mockup moving d-none d-xl-block z-index-3" data-bottom="-40px" data-right="0">
+            <img src="{{ asset('frontend/assets/img/shape/vector_shape_3.png') }}" alt="shape">
+        </div> --}}
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-6 mb-30 mb-xl-0">
@@ -286,7 +332,7 @@
                     <img src="{{ asset('frontend/assets/img/shape/vector_shape_5.png') }}" alt="shape">
                 </div>
                 <div class="row gy-40">
-                    <div class="col-xl-7">
+                    <div class="col-xl-6">
                         <div class="pe-xl-4 text-xl-start text-center">
                             <div class="title-area mb-32">
                                 <span class="sub-title2">
@@ -310,7 +356,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-5">
+                    <div class="col-xl-6">
                         <form action="{{ route('frontend.quote-requests.store') }}" method="POST"
                             class="contact-form1 cw-home-quote-form">
                             @csrf
@@ -707,6 +753,49 @@
             </div>
         </div>
     </div>
+    <section class="space cw-home-service-area" id="service-area">
+        <div class="container-fluid px-0">
+            <div class="row g-0 align-items-stretch cw-area-layout">
+                <div class="col-xl-5">
+                    <div class="cw-area-panel cw-home-area-copy h-100">
+                        <div class="cw-area-intro">
+                            <h2>Cleaning Coverage Built Around Commercial Demand</h2>
+                            <p>Crestwell Facilities supports offices, managed properties, serviced accommodation, communal
+                                areas and specialist cleaning requirements across core local coverage zones.</p>
+                        </div>
+                        <div class="cw-location-list cw-home-location-list">
+                            @foreach ($locations as $location)
+                                <div>
+                                    <h3>{{ $location->name }}</h3>
+                                    <p>{{ $location->description }}</p>
+                                    @if ($location->postcodeArea)
+                                        <small>{{ $location->postcodeArea }}</small>
+                                    @endif
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="cw-area-actions">
+                            <a href="{{ route('frontend.contact') }}" class="th-btn btn-sm">Check Availability<i
+                                    class="fas fa-arrow-up-right ms-2"></i></a>
+                            <a href="tel:{{ config('site.phone_link') }}" class="cw-area-call">
+                                <i class="fas fa-phone"></i>{{ config('site.phone') }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-7">
+                    <div class="cw-map-panel cw-home-map-panel">
+                        <div class="cw-map-toolbar">
+                            <span><i class="fa-solid fa-location-crosshairs"></i> Live coverage view</span>
+                            <strong>{{ count($locations) }} service zones</strong>
+                        </div>
+                        <iframe class="cw-map" src="{{ config('site.google_maps_embed') }}" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" title="Crestwell Facilities service area map"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="space-top" id="testi-sec">
         <div class="container">
             <div class="testi-box2-area">
@@ -1101,9 +1190,6 @@
     </section>
     @endif
     <div class="space-bottom">
-        <div class="shape-mockup moving d-none d-xl-block" data-bottom="0%" data-right="0%">
-            <img src="{{ asset('frontend/assets/img/shape/tool_shape_5.png') }}" alt="shape">
-        </div>
         <div class="container">
             <div class="swiper th-slider" id="brandSlider1"
                 data-slider-options='{"breakpoints":{"0":{"slidesPerView":2},"420":{"slidesPerView":"3"},"768":{"slidesPerView":"4"},"992":{"slidesPerView":"5"},"1200":{"slidesPerView":"6"},"1400":{"slidesPerView":"6"}}}'>
